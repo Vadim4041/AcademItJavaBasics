@@ -17,7 +17,7 @@ package Homework2;
 
 import static java.lang.Math.*;
 
-public class Task2Circle {
+public class Circle {
     public static void main(String[] args) {
         double radius = 5;
 

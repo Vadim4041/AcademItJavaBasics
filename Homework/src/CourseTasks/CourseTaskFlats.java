@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 import static java.lang.Math.*;
 
-public class CourseTask1Flats {
+public class CourseTaskFlats {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

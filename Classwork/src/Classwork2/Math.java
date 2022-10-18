@@ -11,7 +11,7 @@ package Classwork2;
 
 import static java.lang.Math.*;
 
-public class Task2Math {
+public class Math {
     public static void main(String[] args) {
         double radius = 5;
         double area = PI * pow(radius, 2);

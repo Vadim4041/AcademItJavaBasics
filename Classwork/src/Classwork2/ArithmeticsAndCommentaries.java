@@ -10,7 +10,7 @@ package Classwork2;
 деление
  */
 
-public class Task3And4ArithmeticsAndCommentaries {
+public class ArithmeticsAndCommentaries {
     public static void main(String[] args) {
         int a = 5 + 5;
         System.out.println(a);
