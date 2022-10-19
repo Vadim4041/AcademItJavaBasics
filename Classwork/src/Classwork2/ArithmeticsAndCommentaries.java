@@ -10,6 +10,12 @@ package Classwork2;
 деление
  */
 
+/**
+ * Документация...
+ * Документация...
+ * Документация...
+ */
+
 public class ArithmeticsAndCommentaries {
     public static void main(String[] args) {
         int a = 5 + 5;
@@ -41,8 +47,8 @@ public class ArithmeticsAndCommentaries {
         int c = 7 / 3;
         System.out.println(c);
         double d = 7.0 / 3;
-//        double d = (double) 7 / 3;
+//      double d = (double) 7 / 3;
         System.out.println(d);
-//        TODO Сделать подробное описание в консоли
+//      TODO Сделать подробное описание в консоли
     }
 }
