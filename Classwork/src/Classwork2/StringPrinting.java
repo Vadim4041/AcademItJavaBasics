@@ -11,10 +11,10 @@ C:\Windows\System32\Drivers\etc\hosts
 Результат = 4
  */
 
-public class Mirroring {
+public class StringPrinting {
     public static void main(String[] args) {
         System.out.println("\"30\" августа 1903г." + System.lineSeparator() + "C:\\Windows\\System32\\Drivers\\etc\\hosts");
-        int a = 55*16/2;
+        int a = 55 * 16 / 2;
         System.out.println("Результат = " + a);
     }
 }
