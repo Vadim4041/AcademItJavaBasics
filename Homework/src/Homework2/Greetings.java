@@ -13,7 +13,6 @@ public class Greetings {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите ваше имя:");
-
         String name = scanner.nextLine();
 
         System.out.println("Привет, " + name + "!");

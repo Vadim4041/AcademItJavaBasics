@@ -18,11 +18,9 @@ public class Rectangle {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите ширину прямоугольника:");
-
         double width = scanner.nextDouble();
 
         System.out.println("Введите длину прямоугольника:");
-
         double length = scanner.nextDouble();
 
         double perimeter = 2 * (width + length);
