@@ -35,7 +35,9 @@ public class MaxMin {
         int maxNumberTernary = (number1 > number2) ? number1 : number2;
         int minNumberTernary = (number1 < number2) ? number1 : number2;
 
-        System.out.println("Минимальное число из введенных: " + minNumberIf);
-        System.out.println("Максимальное число из введенных: " + maxNumberIf);
+        System.out.println("Минимальное число из введенных, определенное с применением условного оператора if: " + minNumberIf);
+        System.out.println("Минимальное число из введенных, определенное с применением тернарного оператора: " + minNumberTernary);
+        System.out.println("Максимальное число из введенных, определенное с применением условного оператора if: " + maxNumberIf);
+        System.out.println("Максимальное число из введенных, определенное с применением тернарного оператора: " + maxNumberTernary);
     }
 }
