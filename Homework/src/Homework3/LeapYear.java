@@ -20,10 +20,11 @@ public class LeapYear {
             System.out.println("Год не может быть отрицательным или равным нулю");
             return;
         }
-        if (year % 4 == 0) {
-            System.out.println("Данный год является високосным");
-        } else {
+
+        if ((year % 400 != 0 && year % 100 == 0) || (year % 4 != 0)) {
             System.out.println("Данный год не является високосным");
+        } else {
+            System.out.println("Данный год является високосным");
         }
     }
 }
