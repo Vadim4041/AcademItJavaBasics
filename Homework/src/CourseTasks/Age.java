@@ -24,14 +24,19 @@ public class Age {
         if (age < 1) {
             System.out.println("Вы слишком малы");
             return;
-        } else if (age > 112) {
+        }
+
+        if (age > 112) {
             System.out.println("Вы слишком стары");
             return;
         }
 
-        if ((age % 100 >= 11 && age % 100 <= 14) || (age % 10 == 0) || (age % 10 == 5)) {
+        int lastDigit = age % 10;
+        int last2Digits = age % 100;
+
+        if ((last2Digits >= 11 && last2Digits <= 14) || (lastDigit == 0) || (lastDigit == 5)) {
             System.out.printf("Вам %d лет", age);
-        } else if (age % 10 == 1) {
+        } else if (lastDigit == 1) {
             System.out.printf("Вам %d год", age);
         } else {
             System.out.printf("Вам %d года", age);
