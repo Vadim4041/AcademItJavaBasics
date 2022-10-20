@@ -31,8 +31,8 @@ public class QuadraticEquation {
         double x1;
         double x2;
 
-        if (a == 0 && b == 0 && c == 0) {
-            System.out.println("Все введенные коэффициенты равны нулю, попробуйте еще раз");
+        if (a == 0 && b == 0) {
+            System.out.println("Коэффициенты a и b равны нулю, попробуйте еще раз");
             return;
         }
 
