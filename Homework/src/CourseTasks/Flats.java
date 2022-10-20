@@ -17,39 +17,36 @@ package CourseTasks;
 
 import java.util.Scanner;
 
-public class CourseTaskFlats {
+public class Flats {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите количество этажей в доме:");
-
         int floorsQuantity = scanner.nextInt();
 
         System.out.println("Введите количество подъездов в доме:");
-
         int entrancesQuantity = scanner.nextInt();
 
         System.out.println("Введите номер искомой квартиры:");
-
         int flatNumber = scanner.nextInt();
 
         int flatsQuantityOnFloor = 4;
 
         int flatsQuantity = floorsQuantity * entrancesQuantity * flatsQuantityOnFloor;
-        System.out.println("Всего квартир в доме:" + flatsQuantity);
+        System.out.println("Всего квартир в доме: " + flatsQuantity);
 
         if (flatNumber < 1 || flatNumber > flatsQuantity) {
-            System.out.printf("Неправильный номер квартиры. Он не может быть больше %d и меньше единицы. Выберите существующий номер квартиры", flatsQuantity);
+            System.out.printf("Неправильный номер квартиры. Он не может быть больше %d и меньше единицы. Выберите существующий номер квартиры.", flatsQuantity);
             return;
         }
 
         int entranceNumber = (int) Math.ceil((double) flatNumber / (flatsQuantityOnFloor * floorsQuantity));
         int floorNumber = (int) Math.ceil(((double) flatNumber - (entranceNumber - 1) * floorsQuantity * flatsQuantityOnFloor) / flatsQuantityOnFloor);
-        int flatNumberOnFloor = flatNumber % flatsQuantityOnFloor;
+        int flatIndexOnFloor = flatNumber % flatsQuantityOnFloor;
 
         String flatLocationOnFloor;
 
-        switch (flatNumberOnFloor) {
+        switch (flatIndexOnFloor) {
             case 1 -> flatLocationOnFloor = "ближняя слева";
             case 2 -> flatLocationOnFloor = "дальняя слева";
             case 3 -> flatLocationOnFloor = "дальняя справа";
