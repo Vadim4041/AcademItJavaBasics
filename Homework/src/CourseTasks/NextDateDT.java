@@ -34,6 +34,5 @@ public class NextDateDT {
         String correctDate = dateNext.format(formatter);
 
         System.out.println("Следующий день имеет дату: " + correctDate);
-
     }
 }
