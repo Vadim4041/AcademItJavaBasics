@@ -9,5 +9,4 @@ public class BooleanExpressions {
         boolean bool3 = (true && true) && true;
         boolean bool4 = true;
     }
-
 }
