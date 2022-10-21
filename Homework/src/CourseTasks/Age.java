@@ -34,7 +34,7 @@ public class Age {
         int lastDigit = age % 10;
         int last2Digits = age % 100;
 
-        if (last2Digits >= 11 && last2Digits <= 14 || lastDigit == 0 || lastDigit >= 5) {
+        if ((last2Digits >= 11 && last2Digits <= 14) || lastDigit == 0 || lastDigit >= 5) {
             System.out.printf("Вам %d лет", age);
         } else if (lastDigit == 1) {
             System.out.printf("Вам %d год", age);
