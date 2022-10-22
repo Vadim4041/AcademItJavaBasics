@@ -37,9 +37,9 @@ public class TriangleArea {
         System.out.println("Введите координату y третьей точки треугольника на плоскости:");
         double y3 = scanner.nextDouble();
 
-        double length12 = Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
-        double length23 = Math.sqrt(Math.pow((x2 - x3), 2) + Math.pow((y2 - y3), 2));
-        double length31 = Math.sqrt(Math.pow((x1 - x3), 2) + Math.pow((y1 - y3), 2));
+        double length12 = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+        double length23 = Math.sqrt(Math.pow(x2 - x3, 2) + Math.pow(y2 - y3, 2));
+        double length31 = Math.sqrt(Math.pow(x1 - x3, 2) + Math.pow(y1 - y3, 2));
 
         double halfPerimeter = (length12 + length23 + length31) / 2;
         double maxLength = Math.max(length12, Math.max(length23, length31));
