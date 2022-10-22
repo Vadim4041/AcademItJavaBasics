@@ -14,7 +14,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class NextDateOld {
+public class NextDateOldLib {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

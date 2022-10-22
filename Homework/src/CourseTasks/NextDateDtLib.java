@@ -15,7 +15,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class NextDateDT {
+public class NextDateDtLib {
     public static void main(String[] args) throws ParseException {
         Scanner scanner = new Scanner(System.in);
 

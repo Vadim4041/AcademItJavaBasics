@@ -11,8 +11,6 @@ package CourseTasks;
  */
 
 import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class NextDate {
@@ -27,6 +25,48 @@ public class NextDate {
         int monthNumber = Integer.parseInt(parts[1]);
         int year = Integer.parseInt(parts[2]);
 
+        int maxDayNumber = 31;
+
+        if (dayNumber < 1 || dayNumber > maxDayNumber) {
+            System.out.println("Номер дня в месяце не может быть меньше 1 и больше 31");
+            return;
+        }
+
+        if (monthNumber < 1 || monthNumber > 12) {
+            System.out.println("Номер месяца не может быть меньше 1 и больше 12");
+            return;
+        }
+
+        if (year < 1) {
+            System.out.println("Год не может быть отрицательным или равным нулю");
+            return;
+        }
+
+        boolean monthNumberIsEven = monthNumber % 2 == 0;
+
+        if (monthNumber <= 7) {
+            if (monthNumberIsEven) {
+                maxDayNumber = 30;
+            }
+        } else {
+            if (!monthNumberIsEven) {
+                maxDayNumber = 30;
+            }
+        }
+
+        if (monthNumber == 2) {
+            if ((year % 4 != 0) || (year % 400 != 0 && year % 100 == 0)) {
+                maxDayNumber = 28;
+            } else {
+                maxDayNumber = 29;
+            }
+        }
+
+        if (dayNumber > maxDayNumber) {
+            System.out.println("В данном месяце не существует дня с таким номером");
+            return;
+        }
+
         String monthNumberString;
 
         if (monthNumber < 10) {
@@ -35,15 +75,47 @@ public class NextDate {
             monthNumberString = Integer.toString(monthNumber);
         }
 
-        String inputDate = String.format("%d.%s.%d", dayNumber, monthNumberString, year);
+        String dayNumberString;
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        LocalDate date = LocalDate.of(year, monthNumber, dayNumber);
+        if (dayNumber < 10) {
+            dayNumberString = "0" + dayNumber;
+        } else {
+            dayNumberString = Integer.toString(dayNumber);
+        }
+
+        String inputDate = String.format("%s.%s.%d", dayNumberString, monthNumberString, year);
 
         System.out.println("Введенная дата: " + inputDate);
 
-        LocalDate dateNext = date.plusDays(1);
-        String correctDate = dateNext.format(formatter);
-        System.out.println("Следующий день имеет дату: " + correctDate);
+        int nextDayNumber = dayNumber + 1;
+
+        String nextDayNumberString;
+
+        if (nextDayNumber < 10) {
+            nextDayNumberString = "0" + nextDayNumber;
+        } else {
+            nextDayNumberString = Integer.toString(nextDayNumber);
+        }
+
+        int nextMonthNumber = monthNumber;
+        String nextMonthNumberString = Integer.toString(nextMonthNumber);
+        int nextYear = year;
+
+        if (dayNumber == maxDayNumber) {
+            if (monthNumber == 12) {
+                nextMonthNumberString = "01";
+                nextYear = year + 1;
+            }
+            nextDayNumberString = "01";
+            nextMonthNumber = monthNumber + 1;
+        }
+
+        if (nextMonthNumber < 10) {
+            nextMonthNumberString = "0" + nextMonthNumber;
+        }
+
+        String nextDate = String.format("%s.%s.%d", nextDayNumberString, nextMonthNumberString, nextYear);
+
+        System.out.println("Следующий день имеет дату: " + nextDate);
     }
 }
