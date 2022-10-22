@@ -26,30 +26,33 @@ public class QuadraticEquation {
         System.out.println("Введите коэффициент c квадратного уравнения:");
         double c = scanner.nextDouble();
 
+        double epsilon = 1.0e-10;
+
+        if (Math.abs(a) <= epsilon && Math.abs(b) <= epsilon) {
+            if (Math.abs(c) <= epsilon) {
+                System.out.println("Все коэффициенты равны нулю, попробуйте еще раз");
+            } else {
+                System.out.println("Только коэффициенты a и b равны нулю, такое выражение не является уравнением, попробуйте еще раз");
+            }
+            return;
+        }
+
+        if (Math.abs(a) <= epsilon) {
+            double x = -c / b;
+            System.out.println("Данное уравнение является линейным, его корень равен " + x);
+            return;
+        }
+
         double discriminant = Math.pow(b, 2) - 4 * a * c;
 
-        double x1;
-        double x2;
-
-        if (a == 0 && b == 0) {
-            System.out.println("Коэффициенты a и b равны нулю, попробуйте еще раз");
-            return;
-        }
-
-        if (a == 0) {
-            x1 = -c / b;
-            System.out.println("Данное уравнение является линейным, его корень равен " + x1);
-            return;
-        }
-
-        if (discriminant < 0) {
+        if (discriminant < -epsilon) {
             System.out.println("У квадратного уравнения с введенными коэффициентами нет корней");
-        } else if (discriminant == 0) {
-            x1 = -b / 2 / a;
-            System.out.println("У квадратного уравнения с введенными коэффициентами два одинаковых корня, равных " + x1);
+        } else if (Math.abs(discriminant) <= epsilon) {
+            double x = -b / (2 * a);
+            System.out.println("У квадратного уравнения с введенными коэффициентами два одинаковых корня, равных " + x);
         } else {
-            x1 = (-b + Math.sqrt(discriminant)) / 2 / a;
-            x2 = (-b - Math.sqrt(discriminant)) / 2 / a;
+            double x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
             System.out.printf("У квадратного уравнения с введенными коэффициентами два разных корня, равных %f и %f", x1, x2);
         }
     }
