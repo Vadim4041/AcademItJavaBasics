@@ -39,26 +39,7 @@ public class TriangleAreaVariant2 {
 
         double epsilon = 1e-10;
 
-        boolean points12HaveSameXCoordinates = Math.abs(x1 - x2) <= epsilon;
-        boolean points12HaveSameYCoordinates = Math.abs(y1 - y2) <= epsilon;
-        boolean points23HaveSameXCoordinates = Math.abs(x2 - x3) <= epsilon;
-        boolean points23HaveSameYCoordinates = Math.abs(y2 - y3) <= epsilon;
-        boolean points13HaveSameXCoordinates = Math.abs(x1 - x3) <= epsilon;
-        boolean points13HaveSameYCoordinates = Math.abs(y1 - y3) <= epsilon;
-
-        if (points12HaveSameXCoordinates && points12HaveSameYCoordinates && points23HaveSameXCoordinates &&
-                points23HaveSameYCoordinates && points13HaveSameXCoordinates && points13HaveSameYCoordinates) {
-            System.out.println("Все три введенные точки имеют одинаковые координаты. Попробуйте еще раз");
-            return;
-        }
-
-        if ((points12HaveSameXCoordinates && points12HaveSameYCoordinates) || (points13HaveSameXCoordinates && points13HaveSameYCoordinates)
-         || (points23HaveSameXCoordinates && points23HaveSameYCoordinates)) {
-            System.out.println("Две из трех введенных точек имеют одинаковые координаты. Попробуйте еще раз");
-            return;
-        }
-
-        if (Math.abs((y2 - y1) / (x2 - x1) * x3 + y1 - (y2 - y1) / (x2 - x1) * x1 - y3) <= epsilon) {
+        if (Math.abs((y2 - y1) * (x3 - x1) - (y3 - y1) * (x2 - x1)) <= epsilon) {
             System.out.println("Заданные точки лежат на одной прямой. Попробуйте еще раз");
             return;
         }
