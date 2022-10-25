@@ -10,29 +10,34 @@ package CourseTasks;
 • Еще сделать проверку даты на корректность
  */
 
-import java.text.ParseException;
 import java.util.Scanner;
 
 public class NextDate {
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите номер дня, месяца и год через пробел:");
-        String input = scanner.nextLine();
+        String inputDate = scanner.nextLine();
 
-        String[] parts = input.split(" ");
-        int dayNumber = Integer.parseInt(parts[0]);
-        int monthNumber = Integer.parseInt(parts[1]);
-        int year = Integer.parseInt(parts[2]);
+        String[] datePartsArray = inputDate.split(" ");
 
-        int maxDayNumber = 31;
+        if (datePartsArray.length != 3) {
+            System.out.println("Вы ввели неверное количество данных. Попробуйте еще раз");
+            return;
+        }
 
-        if (dayNumber < 1 || dayNumber > maxDayNumber) {
+        int day = Integer.parseInt(datePartsArray[0]);
+        int month = Integer.parseInt(datePartsArray[1]);
+        int year = Integer.parseInt(datePartsArray[2]);
+
+        int maxDay = 31;
+
+        if (day < 1 || day > maxDay) {
             System.out.println("Номер дня в месяце не может быть меньше 1 и больше 31");
             return;
         }
 
-        if (monthNumber < 1 || monthNumber > 12) {
+        if (month < 1 || month > 12) {
             System.out.println("Номер месяца не может быть меньше 1 и больше 12");
             return;
         }
@@ -42,80 +47,37 @@ public class NextDate {
             return;
         }
 
-        boolean monthNumberIsEven = monthNumber % 2 == 0;
+        boolean isMonthEven = month % 2 == 0;
 
-        if (monthNumber <= 7) {
-            if (monthNumberIsEven) {
-                maxDayNumber = 30;
-            }
-        } else {
-            if (!monthNumberIsEven) {
-                maxDayNumber = 30;
-            }
+        if (month == 2 && ((year % 4 != 0) || (year % 400 != 0 && year % 100 == 0))) {
+            maxDay = 28;
+        } else if (month == 2) {
+            maxDay = 29;
+        } else if ((isMonthEven && month <= 7) || (!isMonthEven && month > 7)) {
+            maxDay = 30;
         }
 
-        if (monthNumber == 2) {
-            if ((year % 4 != 0) || (year % 400 != 0 && year % 100 == 0)) {
-                maxDayNumber = 28;
-            } else {
-                maxDayNumber = 29;
-            }
-        }
-
-        if (dayNumber > maxDayNumber) {
-            System.out.println("В данном месяце не существует дня с таким номером");
+        if (day > maxDay) {
+            System.out.println("Введенной даты не существует");
             return;
         }
 
-        String monthNumberString;
+        System.out.printf("Введенная дата: %02d.%02d.%d%n", day, month, year);
 
-        if (monthNumber < 10) {
-            monthNumberString = "0" + monthNumber;
-        } else {
-            monthNumberString = Integer.toString(monthNumber);
-        }
-
-        String dayNumberString;
-
-        if (dayNumber < 10) {
-            dayNumberString = "0" + dayNumber;
-        } else {
-            dayNumberString = Integer.toString(dayNumber);
-        }
-
-        String inputDate = String.format("%s.%s.%d", dayNumberString, monthNumberString, year);
-
-        System.out.println("Введенная дата: " + inputDate);
-
-        int nextDayNumber = dayNumber + 1;
-
-        String nextDayNumberString;
-
-        if (nextDayNumber < 10) {
-            nextDayNumberString = "0" + nextDayNumber;
-        } else {
-            nextDayNumberString = Integer.toString(nextDayNumber);
-        }
-
-        int nextMonthNumber = monthNumber;
-        String nextMonthNumberString = Integer.toString(nextMonthNumber);
+        int nextDay = day + 1;
+        int nextMonth = month;
         int nextYear = year;
 
-        if (dayNumber == maxDayNumber) {
-            if (monthNumber == 12) {
-                nextMonthNumberString = "01";
+        if (day == maxDay) {
+            nextDay = 1;
+            if (month == 12) {
+                nextMonth = 1;
                 nextYear = year + 1;
+            } else {
+                nextMonth = month + 1;
             }
-            nextDayNumberString = "01";
-            nextMonthNumber = monthNumber + 1;
         }
 
-        if (nextMonthNumber < 10) {
-            nextMonthNumberString = "0" + nextMonthNumber;
-        }
-
-        String nextDate = String.format("%s.%s.%d", nextDayNumberString, nextMonthNumberString, nextYear);
-
-        System.out.println("Следующий день имеет дату: " + nextDate);
+        System.out.printf("Следующий день имеет дату: %02d.%02d.%d%n", nextDay, nextMonth, nextYear);
     }
 }
