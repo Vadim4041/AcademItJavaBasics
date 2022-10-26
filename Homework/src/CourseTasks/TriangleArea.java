@@ -37,20 +37,20 @@ public class TriangleArea {
         System.out.println("Введите координату y третьей точки треугольника на плоскости:");
         double y3 = scanner.nextDouble();
 
+        double epsilon = 1e-10;
+
+        if (Math.abs((y2 - y1) * (x3 - x1) - (y3 - y1) * (x2 - x1)) <= epsilon) {
+            System.out.println("Заданные точки лежат на одной прямой. Попробуйте еще раз");
+            return;
+        }
+
         double length12 = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
         double length23 = Math.sqrt(Math.pow(x2 - x3, 2) + Math.pow(y2 - y3, 2));
         double length31 = Math.sqrt(Math.pow(x1 - x3, 2) + Math.pow(y1 - y3, 2));
 
         double halfPerimeter = (length12 + length23 + length31) / 2;
-        double maxLength = Math.max(length12, Math.max(length23, length31));
-
-        if (maxLength == halfPerimeter) {
-            System.out.println("Заданные точки лежат на одной прямой. Попробуйте еще раз");
-            return;
-        }
 
         double area = Math.sqrt(halfPerimeter * (halfPerimeter - length12) * (halfPerimeter - length23) * (halfPerimeter - length31));
-
         System.out.println("Площадь треугольника с введенными координатами равна: " + area);
     }
 }
