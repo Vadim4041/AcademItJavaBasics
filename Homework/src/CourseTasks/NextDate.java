@@ -70,6 +70,7 @@ public class NextDate {
 
         if (day == maxDay) {
             nextDay = 1;
+
             if (month == 12) {
                 nextMonth = 1;
                 nextYear = year + 1;
