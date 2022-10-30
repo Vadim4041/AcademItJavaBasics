@@ -33,21 +33,27 @@ public class WhilePractice {
         System.out.println("Сумма чисел от 3 до 21 включительно: " + sum);
 
         sum = 0;
-        i = 4;
+        i = 3;
 
         while (i <= 20) {
-            sum += i;
-            i += 2;
+            if (i % 2 == 0) {
+                sum += i;
+            }
+
+            i++;
         }
 
         System.out.println("Сумма четных чисел от 3 до 21 включительно: " + sum);
 
         int evenNumbersQuantity = 0;
-        i = 4;
+        i = 3;
 
         while (i <= 20) {
-            ++evenNumbersQuantity;
-            i += 2;
+            if (i % 2 == 0) {
+                ++evenNumbersQuantity;
+            }
+
+            i++;
         }
 
         System.out.println("Количество четных чисел от 3 до 21 включительно: " + evenNumbersQuantity);

@@ -19,24 +19,24 @@ public class SwitchCommands {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите команду print, чтобы прочитать с консоли строку и напечатать ее," +
-                " или команду sum, чтобы прочитать с консоли два вещественных числа и вывести их сумму");
+                " или команду sum, чтобы прочитать с консоли два вещественных числа и вывести их сумму:");
         String command = scanner.nextLine();
 
         switch (command) {
             case "print":
-                System.out.println("Введите еще одну строку");
-                String printCommand = scanner.nextLine();
+                System.out.println("Введите еще одну строку:");
+                String stringInput = scanner.nextLine();
 
-                System.out.println("Вы ввели следующее: " + printCommand);
+                System.out.println("Вы ввели следующее: " + stringInput);
                 break;
             case "sum":
                 System.out.println("Введите первое вещественное число:");
-                double commandSumNumber1 = scanner.nextDouble();
+                double number1 = scanner.nextDouble();
 
                 System.out.println("Введите второе вещественное число:");
-                double commandSumNumber2 = scanner.nextDouble();
+                double number2 = scanner.nextDouble();
 
-                System.out.println("Сумма веденных чисел: " + (commandSumNumber1 + commandSumNumber2));
+                System.out.println("Сумма веденных чисел: " + (number1 + number2));
                 break;
             default:
                 System.out.println("Введена неизвестная команда");

@@ -15,12 +15,12 @@ public class DoubleValuesEqualityCheck {
         double epsilon = 1.0e-10;
 
         System.out.println("Введите первое вещественное число:");
-        double a = scanner.nextDouble();
+        double number1 = scanner.nextDouble();
 
         System.out.println("Введите первое вещественное число:");
-        double b = scanner.nextDouble();
+        double number2 = scanner.nextDouble();
 
-        if (Math.abs(a - b) < epsilon) {
+        if (Math.abs(number1 - number2) < epsilon) {
             System.out.println("Два введенных числа равны");
         } else {
             System.out.println("Две введенных числа не равны");
