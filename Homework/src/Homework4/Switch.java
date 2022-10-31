@@ -26,9 +26,9 @@ public class Switch {
         double number2 = scanner.nextDouble();
 
         System.out.println("Введите число - номер команды:");
-        int commandNumber = scanner.nextInt();
+        int commandCode = scanner.nextInt();
 
-        switch (commandNumber) {
+        switch (commandCode) {
             case 1:
                 System.out.println("Сумма введенных чисел равна: " + (number1 + number2));
                 break;
