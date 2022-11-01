@@ -10,7 +10,7 @@ package Homework4;
 
 import java.util.Scanner;
 
-public class DigitsNumber {
+public class NumbersDigits {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -18,36 +18,18 @@ public class DigitsNumber {
         int number = Math.abs(scanner.nextInt());
 
         int i = 1;
+        int digit;
         int digitsSum = 0;
+        int oddDigitsSum = 0;
+        int maxDigit = 0;
 
         while (number / i > 0) {
             digitsSum += number / i % 10;
-            i *= 10;
-        }
-
-        System.out.println("Сумма цифр введенного числа равна: " + digitsSum);
-
-        int digit;
-        int oddDigitsSum = 0;
-        i = 1;
-
-        while (number / i > 0) {
             digit = number / i % 10;
 
             if (digit % 2 == 1) {
                 oddDigitsSum += digit;
             }
-
-            i *= 10;
-        }
-
-        System.out.println("Сумма нечетных цифр введенного числа равна: " + oddDigitsSum);
-
-        int maxDigit = 0;
-        i = 1;
-
-        while (number / i > 0) {
-            digit = number / i % 10;
 
             if (digit > maxDigit) {
                 maxDigit = digit;
@@ -56,6 +38,8 @@ public class DigitsNumber {
             i *= 10;
         }
 
+        System.out.println("Сумма цифр введенного числа равна: " + digitsSum);
+        System.out.println("Сумма нечетных цифр введенного числа равна: " + oddDigitsSum);
         System.out.println("Максимальная цифра введенного числа равна: " + maxDigit);
     }
 }
