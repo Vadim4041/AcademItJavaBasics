@@ -9,7 +9,7 @@ package Homework4;
 …
  */
 
-public class TenNumbersInString {
+public class TenNumbersInLine {
     public static void main(String[] args) {
         int i = 1;
 
@@ -18,6 +18,7 @@ public class TenNumbersInString {
             if (i % 10 == 0) {
                 System.out.println();
             }
+
             i++;
         }
     }
