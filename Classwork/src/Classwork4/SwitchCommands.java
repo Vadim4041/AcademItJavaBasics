@@ -25,9 +25,9 @@ public class SwitchCommands {
         switch (command) {
             case "print":
                 System.out.println("Введите еще одну строку:");
-                String stringInput = scanner.nextLine();
+                String inputString = scanner.nextLine();
 
-                System.out.println("Вы ввели следующее: " + stringInput);
+                System.out.println("Вы ввели следующее: " + inputString);
                 break;
             case "sum":
                 System.out.println("Введите первое вещественное число:");
