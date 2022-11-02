@@ -35,7 +35,7 @@ public class WhilePractice {
         sum = 0;
         i = 3;
 
-        while (i <= 20) {
+        while (i <= 21) {
             if (i % 2 == 0) {
                 sum += i;
             }
@@ -48,7 +48,7 @@ public class WhilePractice {
         int evenNumbersQuantity = 0;
         i = 3;
 
-        while (i <= 20) {
+        while (i <= 21) {
             if (i % 2 == 0) {
                 ++evenNumbersQuantity;
             }
