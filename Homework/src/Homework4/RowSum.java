@@ -15,17 +15,13 @@ public class RowSum {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите количество чисел:");
-        int numberQuantity = scanner.nextInt();
+        int numbersQuantity = scanner.nextInt();
 
-        int i = 0;
-        int sum = 1;
-        int signChanger = -1;
-        int nextNumber = 1;
+        int i = 1;
+        int sum = 0;
 
-        while (i + 1 < numberQuantity) {
-            nextNumber += ((i + 2) * 2 - 1);
-            sum += nextNumber * signChanger;
-            signChanger *= -1;
+        while (i <= numbersQuantity) {
+            sum += Math.pow(i, 2) * Math.pow(-1, i + 1);
             i++;
         }
 
