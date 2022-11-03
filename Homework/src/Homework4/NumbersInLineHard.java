@@ -10,41 +10,42 @@ package Homework4;
 
 import java.util.Scanner;
 
-public class NumbersInStringHard {
+public class NumbersInLineHard {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите начальное число:");
-        int start = scanner.nextInt();
+        int startNumber = scanner.nextInt();
 
         System.out.println("Введите конечное число:");
-        int end = scanner.nextInt();
+        int endNumber = scanner.nextInt();
 
-        System.out.println("Введите число чисел в строке:");
-        int numbersPerString = scanner.nextInt();
+        System.out.println("Введите количество чисел в строке:");
+        int numbersQuantityPerLine = scanner.nextInt();
 
-        if (start > end) {
+        if (startNumber > endNumber) {
             System.out.println("Конечное число меньше начального. Попробуйте снова");
             return;
         }
 
         int i = 1;
-        int digitsQuantity = 0;
+        int neededLength = 1;
 
-        while (end / i > 0) {
-            ++digitsQuantity;
+        while (endNumber / i > 0) {
+            ++neededLength;
             i *= 10;
         }
 
-        i = 0;
+        i = startNumber;
 
-        while (start + i <= end) {
-            System.out.printf("%" + (digitsQuantity + 1) + "d", (start + i));
-            i++;
+        while (i <= endNumber) {
+            System.out.printf("%" + neededLength + "d", i);
 
-            if (i % numbersPerString == 0) {
+            if (i % numbersQuantityPerLine == 0) {
                 System.out.println();
             }
+
+            i++;
         }
     }
 }
