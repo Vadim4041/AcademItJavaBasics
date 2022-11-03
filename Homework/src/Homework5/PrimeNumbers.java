@@ -15,16 +15,24 @@ public class PrimeNumbers {
         System.out.println("Введите целое число:");
         int inputNumber = scanner.nextInt();
 
-        for (int i = 0; i <= inputNumber; i++) {
-            int dividersCount = 0;
+        if (inputNumber <= 1) {
+            System.out.println("Нет простых чисел, не превышающих введенное. Попробуйте еще раз");
+            return;
+        }
 
-            for (int j = 1; j <= i; j++) {
+        System.out.println("Простые числа, не превышающие данное число:");
+
+        for (int i = 2; i <= inputNumber; i++) {
+            boolean only2Dividers = true;
+
+            for (int j = 2; j < i; j++) {
                 if (i % j == 0) {
-                    dividersCount++;
+                    only2Dividers = false;
+                    break;
                 }
             }
 
-            if (dividersCount == 2) {
+            if (only2Dividers) {
                 System.out.println(i);
             }
         }
