@@ -16,35 +16,34 @@ public class FibonacciNumbers {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите номер числа Фибоначчи:");
-        int fibonacciIndex = scanner.nextInt();
+        int fibonacciIndexNumber = scanner.nextInt();
 
-        if (fibonacciIndex < 0) {
+        if (fibonacciIndexNumber < 0) {
             System.out.println("Номер числа не может быть отрицательным. Попробуйте еще раз");
             return;
         }
 
-        if (fibonacciIndex == 0) {
-            System.out.println("Число Фибоначчи с заданным номером равно: " + 0);
+        if (fibonacciIndexNumber == 0) {
+            System.out.println("Число Фибоначчи с заданным номером равно: 0");
             return;
         }
 
-        if (fibonacciIndex == 1) {
-            System.out.println("Число Фибоначчи с заданным номером равно: " + 1);
+        if (fibonacciIndexNumber == 1) {
+            System.out.println("Число Фибоначчи с заданным номером равно: 1");
             return;
         }
 
         int i = 2;
-        int fibonacciNumber1 = 0;
-        int fibonacciNumber2 = 1;
-        int fibonacciNumber3;
+        int previousFibonacciNumber = 0;
+        int currentFibonacciNumber = 1;
 
-        while (i <= fibonacciIndex) {
-            fibonacciNumber3 = fibonacciNumber1 + fibonacciNumber2;
-            fibonacciNumber1 = fibonacciNumber2;
-            fibonacciNumber2 = fibonacciNumber3;
+        while (i <= fibonacciIndexNumber) {
+            int nextFibonacciNumber = previousFibonacciNumber + currentFibonacciNumber;
+            previousFibonacciNumber = currentFibonacciNumber;
+            currentFibonacciNumber = nextFibonacciNumber;
             ++i;
         }
 
-        System.out.println("Число Фибоначчи с заданным номером равно: " + fibonacciNumber2);
+        System.out.println("Число Фибоначчи с заданным номером равно: " + currentFibonacciNumber);
     }
 }
