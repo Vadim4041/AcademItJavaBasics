@@ -19,45 +19,51 @@ public class Average {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите первое число диапазона:");
-        int number1 = scanner.nextInt();
+        int firstNumber = scanner.nextInt();
 
         System.out.println("Введите второе число диапазона:");
-        int number2 = scanner.nextInt();
+        int lastNumber = scanner.nextInt();
 
-        if (number1 == number2) {
+        if (firstNumber == lastNumber) {
             System.out.println("Два введенных числа одинаковы. Попробуйте снова");
             return;
         }
 
-        if (number1 > number2) {
-            int temp = number1;
-            number1 = number2;
-            number2 = temp;
+        if (firstNumber > lastNumber) {
+            int temp = firstNumber;
+            firstNumber = lastNumber;
+            lastNumber = temp;
         }
 
         int sum = 0;
-        int i = 0;
-
-        while (number1 + i <= number2) {
-            sum += number1 + i;
-            i++;
-        }
-
-        System.out.println("Среднее арифметическое диапазона чисел равно: " + ((double) sum / i));
-
-        if (number1 % 2 == 1) {
-            number1++;
-        }
-
-        sum = 0;
-        i = 0;
         int count = 0;
+        int i = firstNumber;
 
-        while (number1 + i * 2 <= number2) {
-            sum += number1 + i * 2;
+        while (i <= lastNumber) {
+            sum += i;
+            count++;
             i++;
         }
 
-        System.out.println("Среднее арифметическое четных чисел диапазона равно: " + (sum / i));
+        double average = (double) sum / count;
+
+        System.out.println("Среднее арифметическое диапазона чисел равно: " + average);
+
+        int evenNumbersSum = 0;
+        int evenNumbersCount = 0;
+        i = firstNumber;
+
+        while (i <= lastNumber) {
+            if (i % 2 == 0) {
+                evenNumbersSum += i;
+                evenNumbersCount++;
+            }
+
+            i++;
+        }
+
+        double evenNumbersAverage = (double) evenNumbersSum / evenNumbersCount;
+
+        System.out.println("Среднее арифметическое четных чисел диапазона равно: " + evenNumbersAverage);
     }
 }

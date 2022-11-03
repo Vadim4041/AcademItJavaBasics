@@ -14,47 +14,53 @@ public class AverageDoWhile {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите первое число диапазона:");
-        int number1 = scanner.nextInt();
+        int firstNumber = scanner.nextInt();
 
         System.out.println("Введите второе число диапазона:");
-        int number2 = scanner.nextInt();
+        int lastNumber = scanner.nextInt();
 
-        if (number1 == number2) {
+        if (firstNumber == lastNumber) {
             System.out.println("Два введенных числа одинаковы. Попробуйте снова");
             return;
         }
 
-        if (number1 > number2) {
-            int temp = number1;
-            number1 = number2;
-            number2 = temp;
+        if (firstNumber > lastNumber) {
+            int temp = firstNumber;
+            firstNumber = lastNumber;
+            lastNumber = temp;
         }
 
         int sum = 0;
-        int i = 0;
-
-        do {
-            sum += number1 + i;
-            i++;
-        }
-        while (number1 + i <= number2);
-
-        System.out.println("Среднее арифметическое диапазона чисел равно: " + ((double) sum / i));
-
-        if (number1 % 2 == 1) {
-            number1++;
-        }
-
-        sum = 0;
-        i = 0;
         int count = 0;
+        int i = firstNumber;
 
         do {
-            sum += number1 + i * 2;
+            sum += i;
+            i++;
+            count++;
+        }
+        while (i <= lastNumber);
+
+        double average = (double) sum / count;
+
+        System.out.println("Среднее арифметическое диапазона чисел равно: " + average);
+
+        int evenNumbersSum = 0;
+        int evenNumbersCount = 0;
+        i = firstNumber;
+
+        do {
+            if (i % 2 == 0) {
+                evenNumbersSum += i;
+                evenNumbersCount++;
+            }
+
             i++;
         }
-        while (number1 + i * 2 <= number2);
+        while (i <= lastNumber);
 
-        System.out.println("Среднее арифметическое четных чисел диапазона равно: " + (sum / i));
+        double evenNumbersAverage = (double) evenNumbersSum / evenNumbersCount;
+
+        System.out.println("Среднее арифметическое четных чисел диапазона равно: " + evenNumbersAverage);
     }
 }
