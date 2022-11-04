@@ -22,10 +22,9 @@ public class Break {
         String correctLine = "123";
 
         System.out.println("Введите строку:");
-        String inputLine;
 
         while (true) {
-            inputLine = scanner.nextLine();
+            String inputLine = scanner.nextLine();
 
             if (inputLine.equals(correctLine)) {
                 break;
@@ -34,6 +33,6 @@ public class Break {
             System.out.println("Неправильно. Попробуйте еще раз:");
         }
 
-        System.out.println("Поздравляем! Вы ввели правильную строку: " + inputLine);
+        System.out.println("Поздравляем! Вы ввели правильную строку: " + correctLine);
     }
 }
