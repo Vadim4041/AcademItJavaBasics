@@ -10,7 +10,7 @@ package Homework4;
 
 import java.util.Scanner;
 
-public class NumbersDigits {
+public class NumberDigits {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -18,14 +18,13 @@ public class NumbersDigits {
         int number = Math.abs(scanner.nextInt());
 
         int i = 1;
-        int digit;
         int digitsSum = 0;
         int oddDigitsSum = 0;
         int maxDigit = 0;
 
         while (number / i > 0) {
-            digitsSum += number / i % 10;
-            digit = number / i % 10;
+            int digit = number / i % 10;
+            digitsSum += digit;
 
             if (digit % 2 == 1) {
                 oddDigitsSum += digit;
