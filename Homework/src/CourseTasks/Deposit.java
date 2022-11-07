@@ -30,10 +30,12 @@ public class Deposit {
         final int monthsInYear = 12;
         final double conversionToPercents = 1.0 / hundredPercents / monthsInYear;
 
+        double monthlyIncreaseCoefficient = 1 + interestRate * conversionToPercents;
+
         double endSum = initialSum;
 
         for (int i = 0; i < monthsQuantity; i++) {
-            endSum += endSum * interestRate * conversionToPercents;
+            endSum *= monthlyIncreaseCoefficient;
         }
 
         System.out.printf("Итоговая сумма на вкладе по истечении %d месяцев: %,.2f%n", monthsQuantity, endSum);
