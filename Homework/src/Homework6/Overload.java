@@ -14,46 +14,46 @@ package Homework6;
 
 public class Overload {
     public static void main(String[] args) {
-        byte byteVariable = 1;
-        System.out.println("Количество байт, требуемых под переменную типа byte: " + getTypeSize(byteVariable));
+        byte variable1 = 1;
+        System.out.println("Количество байт, требуемых под переменную типа byte: " + getTypeSize(variable1));
 
-        short shortVariable = 1;
-        System.out.println("Количество байт, требуемых под переменную типа short: " + getTypeSize(shortVariable));
+        short variable2 = 1;
+        System.out.println("Количество байт, требуемых под переменную типа short: " + getTypeSize(variable2));
 
-        int intVariable = 1;
-        System.out.println("Количество байт, требуемых под переменную типа int: " + getTypeSize(intVariable));
+        int variable3 = 1;
+        System.out.println("Количество байт, требуемых под переменную типа int: " + getTypeSize(variable3));
 
-        long longVariable = 1;
-        System.out.println("Количество байт, требуемых под переменную типа long: " + getTypeSize(longVariable));
+        long variable4 = 1;
+        System.out.println("Количество байт, требуемых под переменную типа long: " + getTypeSize(variable4));
 
-        float floatVariable = 1;
-        System.out.println("Количество байт, требуемых под переменную типа float: " + getTypeSize(floatVariable));
+        float variable5 = 1;
+        System.out.println("Количество байт, требуемых под переменную типа float: " + getTypeSize(variable5));
 
-        double doubleVariable = 1;
-        System.out.println("Количество байт, требуемых под переменную типа double: " + getTypeSize(doubleVariable));
+        double variable6 = 1;
+        System.out.println("Количество байт, требуемых под переменную типа double: " + getTypeSize(variable6));
     }
 
-    public static int getTypeSize(byte byteVariable) {
+    public static int getTypeSize(byte variable) {
         return 1;
     }
 
-    public static int getTypeSize(short shortVariable) {
+    public static int getTypeSize(short variable) {
         return 2;
     }
 
-    public static int getTypeSize(int intVariable) {
+    public static int getTypeSize(int variable) {
         return 4;
     }
 
-    public static int getTypeSize(long longVariable) {
+    public static int getTypeSize(long variable) {
         return 8;
     }
 
-    public static int getTypeSize(float floatVariable) {
+    public static int getTypeSize(float variable) {
         return 4;
     }
 
-    public static int getTypeSize(double doubleVariable) {
+    public static int getTypeSize(double variable) {
         return 8;
     }
 }
