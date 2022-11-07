@@ -23,16 +23,16 @@ public class PrimeNumbers {
         System.out.println("Простые числа, не превышающие данное число:");
 
         for (int i = 2; i <= inputNumber; i++) {
-            boolean only2Dividers = true;
+            boolean isPrimeNumber = true;
 
             for (int j = 2; j < i; j++) {
                 if (i % j == 0) {
-                    only2Dividers = false;
+                    isPrimeNumber = false;
                     break;
                 }
             }
 
-            if (only2Dividers) {
+            if (isPrimeNumber) {
                 System.out.println(i);
             }
         }
