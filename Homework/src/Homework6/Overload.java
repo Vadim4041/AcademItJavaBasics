@@ -33,27 +33,27 @@ public class Overload {
         System.out.println("Количество байт, требуемых под переменную типа double: " + getTypeSize(doubleVariable));
     }
 
-    public static int getTypeSize(byte sizeInBytes) {
+    public static int getTypeSize(byte byteVariable) {
         return 1;
     }
 
-    public static int getTypeSize(short sizeInBytes) {
+    public static int getTypeSize(short shortVariable) {
         return 2;
     }
 
-    public static int getTypeSize(int sizeInBytes) {
+    public static int getTypeSize(int intVariable) {
         return 4;
     }
 
-    public static int getTypeSize(long sizeInBytes) {
+    public static int getTypeSize(long longVariable) {
         return 8;
     }
 
-    public static int getTypeSize(float sizeInBytes) {
+    public static int getTypeSize(float floatVariable) {
         return 4;
     }
 
-    public static int getTypeSize(double sizeInBytes) {
+    public static int getTypeSize(double doubleVariable) {
         return 8;
     }
 }
