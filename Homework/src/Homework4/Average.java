@@ -63,7 +63,6 @@ public class Average {
         }
 
         double evenNumbersAverage = (double) evenNumbersSum / evenNumbersCount;
-
         System.out.println("Среднее арифметическое четных чисел диапазона равно: " + evenNumbersAverage);
     }
 }
