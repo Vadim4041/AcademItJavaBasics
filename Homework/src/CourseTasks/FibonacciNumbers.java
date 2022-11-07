@@ -16,19 +16,19 @@ public class FibonacciNumbers {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите номер числа Фибоначчи:");
-        int fibonacciIndexNumber = scanner.nextInt();
+        int fibonacciNumberIndex = scanner.nextInt();
 
-        if (fibonacciIndexNumber < 0) {
+        if (fibonacciNumberIndex < 0) {
             System.out.println("Номер числа не может быть отрицательным. Попробуйте еще раз");
             return;
         }
 
-        if (fibonacciIndexNumber == 0) {
+        if (fibonacciNumberIndex == 0) {
             System.out.println("Число Фибоначчи с заданным номером равно: 0");
             return;
         }
 
-        if (fibonacciIndexNumber == 1) {
+        if (fibonacciNumberIndex == 1) {
             System.out.println("Число Фибоначчи с заданным номером равно: 1");
             return;
         }
@@ -37,7 +37,7 @@ public class FibonacciNumbers {
         int previousFibonacciNumber = 0;
         int currentFibonacciNumber = 1;
 
-        while (i <= fibonacciIndexNumber) {
+        while (i <= fibonacciNumberIndex) {
             int nextFibonacciNumber = previousFibonacciNumber + currentFibonacciNumber;
             previousFibonacciNumber = currentFibonacciNumber;
             currentFibonacciNumber = nextFibonacciNumber;
