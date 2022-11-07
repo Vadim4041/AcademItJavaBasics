@@ -14,23 +14,23 @@ package Homework6;
 
 public class Overload {
     public static void main(String[] args) {
-        byte variable1 = 1;
-        System.out.println("Количество байт, требуемых под переменную типа byte: " + getTypeSize(variable1));
+        byte byteVariable = 1;
+        System.out.println("Количество байт, требуемых под переменную типа byte: " + getTypeSize(byteVariable));
 
-        short variable2 = 1;
-        System.out.println("Количество байт, требуемых под переменную типа short: " + getTypeSize(variable2));
+        short shortVariable = 1;
+        System.out.println("Количество байт, требуемых под переменную типа short: " + getTypeSize(shortVariable));
 
-        int variable3 = 1;
-        System.out.println("Количество байт, требуемых под переменную типа int: " + getTypeSize(variable3));
+        int intVariable = 1;
+        System.out.println("Количество байт, требуемых под переменную типа int: " + getTypeSize(intVariable));
 
-        long variable4 = 1;
-        System.out.println("Количество байт, требуемых под переменную типа long: " + getTypeSize(variable4));
+        long longVariable = 1;
+        System.out.println("Количество байт, требуемых под переменную типа long: " + getTypeSize(longVariable));
 
-        float variable5 = 1;
-        System.out.println("Количество байт, требуемых под переменную типа float: " + getTypeSize(variable5));
+        float floatVariable = 1;
+        System.out.println("Количество байт, требуемых под переменную типа float: " + getTypeSize(floatVariable));
 
-        double variable6 = 1;
-        System.out.println("Количество байт, требуемых под переменную типа double: " + getTypeSize(variable6));
+        double doubleVariable = 1;
+        System.out.println("Количество байт, требуемых под переменную типа double: " + getTypeSize(doubleVariable));
     }
 
     public static int getTypeSize(byte variable) {
