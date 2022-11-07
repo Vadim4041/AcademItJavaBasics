@@ -17,28 +17,28 @@ public class EuclideanAlgorithm {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите первое число:");
-        int firstNumber = scanner.nextInt();
+        int number1 = scanner.nextInt();
 
         System.out.println("Введите второе число:");
-        int secondNumber = scanner.nextInt();
+        int number2 = scanner.nextInt();
 
-        if (firstNumber == 0 && secondNumber == 0) {
+        if (number1 == 0 && number2 == 0) {
             System.out.println("Оба введенных числа равны нулю. Попробуйте еще раз");
             return;
         }
 
         int greatestCommonDivisor;
 
-        if (secondNumber == 0) {
-            greatestCommonDivisor = firstNumber;
+        if (number2 == 0) {
+            greatestCommonDivisor = number1;
         } else {
-            while (firstNumber % secondNumber != 0) {
-                int temp = secondNumber;
-                secondNumber = firstNumber % secondNumber;
-                firstNumber = temp;
+            while (number1 % number2 != 0) {
+                int temp = number2;
+                number2 = number1 % number2;
+                number1 = temp;
             }
 
-            greatestCommonDivisor = secondNumber;
+            greatestCommonDivisor = number2;
         }
 
         System.out.println("Наибольший общий делитель двух введенных чисел равен: " + greatestCommonDivisor);
