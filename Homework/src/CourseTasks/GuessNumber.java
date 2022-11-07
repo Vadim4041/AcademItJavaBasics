@@ -29,16 +29,19 @@ public class GuessNumber {
         System.out.println("Введите целое число от 1 до 100 включительно:");
         int inputNumber = scanner.nextInt();
 
+        int triesCount = 1;
+
         while (inputNumber != correctNumber) {
             if (inputNumber < correctNumber) {
-                System.out.println("Вы ввели число, меньшее, чем загаданное. Попробуйте еще раз");
+                System.out.println("Вы ввели число, меньшее, чем загаданное. Попробуйте еще раз:");
             } else {
-                System.out.println("Вы ввели число, большее, чем загаданное. Попробуйте еще раз");
+                System.out.println("Вы ввели число, большее, чем загаданное. Попробуйте еще раз:");
             }
 
+            triesCount++;
             inputNumber = scanner.nextInt();
         }
 
-        System.out.println("Поздравляем! Вы угадали число");
+        System.out.println("Поздравляем! Вы угадали число. Потребовалось попыток: " + triesCount);
     }
 }
