@@ -24,15 +24,19 @@ public class Deposit {
         double interestRate = scanner.nextDouble();
 
         System.out.println("Введите количество месяцев:");
-        int months = scanner.nextInt();
+        int monthsQuantity = scanner.nextInt();
+
+        final int hundredPercents = 100;
+        final int monthsInYear = 12;
+        final double conversionToPercents = 1.0 / hundredPercents / monthsInYear;
 
         double endSum = initialSum;
 
-        for (int i = 0; i < months; i++) {
-            endSum += endSum * interestRate / 100 / 12;
+        for (int i = 0; i < monthsQuantity; i++) {
+            endSum += endSum * interestRate * conversionToPercents;
         }
 
-        System.out.printf("Итоговая сумма на вкладе по истечении %d месяцев: %,.2f%n", months, endSum);
+        System.out.printf("Итоговая сумма на вкладе по истечении %d месяцев: %,.2f%n", monthsQuantity, endSum);
 
         double yield = endSum - initialSum;
 
