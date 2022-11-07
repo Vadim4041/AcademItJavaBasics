@@ -17,22 +17,20 @@ public class TemperatureConversion {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите температуру по шкале Цельсия:");
-        double temperatureCelsius = scanner.nextDouble();
+        double celsiusTemperature = scanner.nextDouble();
 
-        double temperatureFahrenheit = ConvertCelsiusToFahrenheit(temperatureCelsius);
+        System.out.printf("Введенная температура по шкале Цельсия равна температуре %.02f градусов по шкале Фаренгейта%n",
+                convertCelsiusToFahrenheit(celsiusTemperature));
 
-        System.out.printf("Введенная температура по шкале Цельсия равна температуре" +
-                " %.02f по шкале Фаренгейта%n", temperatureFahrenheit);
-
-        System.out.printf("Температура по шкале Фаренгейта равна температуре" +
-                " %.02f по шкале Цельсия%n", ConvertFahrenheitToCelsius(temperatureFahrenheit));
+        System.out.printf("Введенная температура по шкале Цельсия равна температуре %.02f градусов по шкале Кельвина%n",
+                convertCelsiusToKelvin(celsiusTemperature));
     }
 
-    public static double ConvertCelsiusToFahrenheit(double temperatureCelsius) {
-        return (double) 9 / 5 * temperatureCelsius + 32;
+    public static double convertCelsiusToFahrenheit(double celsiusTemperature) {
+        return 9.0 / 5 * celsiusTemperature + 32;
     }
 
-    public static double ConvertFahrenheitToCelsius(double temperatureFahrenheit) {
-        return (double) 5 / 9 * (temperatureFahrenheit - 32);
+    public static double convertCelsiusToKelvin(double celsiusTemperature) {
+        return celsiusTemperature + 273.15;
     }
 }
