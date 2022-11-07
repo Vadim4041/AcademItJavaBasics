@@ -14,46 +14,46 @@ package Homework6;
 
 public class Overload {
     public static void main(String[] args) {
-        byte byteType = 1;
-        System.out.println("Количество байт, требуемых под переменную byteType: " + getTypeSize(byteType));
+        byte byteTypeSizeInBytes = 1;
+        System.out.println("Количество байт, требуемых под переменную типа byte: " + getTypeSize(byteTypeSizeInBytes));
 
-        short shortType = 1;
-        System.out.println("Количество байт, требуемых под переменную shortType: " + getTypeSize(shortType));
+        short shortTypeSizeInByte = 1;
+        System.out.println("Количество байт, требуемых под переменную типа short: " + getTypeSize(shortTypeSizeInByte));
 
-        int intType = 1;
-        System.out.println("Количество байт, требуемых под переменную intType: " + getTypeSize(intType));
+        int intTypeSizeInByte = 1;
+        System.out.println("Количество байт, требуемых под переменную типа int: " + getTypeSize(intTypeSizeInByte));
 
-        long longType = 1;
-        System.out.println("Количество байт, требуемых под переменную longType: " + getTypeSize(longType));
+        long longTypeSizeInByte = 1;
+        System.out.println("Количество байт, требуемых под переменную типа long: " + getTypeSize(longTypeSizeInByte));
 
-        float floatType = 1;
-        System.out.println("Количество байт, требуемых под переменную floatType: " + getTypeSize(floatType));
+        float floatTypeSizeInByte = 1;
+        System.out.println("Количество байт, требуемых под переменную типа float: " + getTypeSize(floatTypeSizeInByte));
 
-        double doubleType = 1;
-        System.out.println("Количество байт, требуемых под переменную doubleType: " + getTypeSize(doubleType));
+        double doubleTypeSizeInByte = 1;
+        System.out.println("Количество байт, требуемых под переменную типа double: " + getTypeSize(doubleTypeSizeInByte));
     }
 
-    public static int getTypeSize(byte type) {
+    public static int getTypeSize(byte sizeInBytes) {
         return 1;
     }
 
-    public static int getTypeSize(short type) {
+    public static int getTypeSize(short sizeInBytes) {
         return 2;
     }
 
-    public static int getTypeSize(int type) {
+    public static int getTypeSize(int sizeInBytes) {
         return 4;
     }
 
-    public static int getTypeSize(long type) {
+    public static int getTypeSize(long sizeInBytes) {
         return 8;
     }
 
-    public static int getTypeSize(float type) {
+    public static int getTypeSize(float sizeInBytes) {
         return 4;
     }
 
-    public static int getTypeSize(double type) {
+    public static int getTypeSize(double sizeInBytes) {
         return 8;
     }
 }
