@@ -46,7 +46,6 @@ public class Average {
         }
 
         double average = (double) sum / count;
-
         System.out.println("Среднее арифметическое диапазона чисел равно: " + average);
 
         int evenNumbersSum = 0;

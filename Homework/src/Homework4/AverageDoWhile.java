@@ -36,12 +36,11 @@ public class AverageDoWhile {
 
         do {
             sum += i;
-            i++;
             count++;
+            i++;
         } while (i <= lastNumber);
 
         double average = (double) sum / count;
-
         System.out.println("Среднее арифметическое диапазона чисел равно: " + average);
 
         int evenNumbersSum = 0;
