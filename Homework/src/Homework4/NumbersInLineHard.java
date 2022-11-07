@@ -38,13 +38,14 @@ public class NumbersInLineHard {
 
         i = startNumber;
 
-        while (i <= endNumber) {
-            System.out.printf("%" + neededLength + "d", i);
+        String neededLengthString = "%" + neededLength + "d";
 
-            if (i % numbersQuantityPerLine == 0) {
+        while (i <= endNumber) {
+            if ((i - startNumber) % numbersQuantityPerLine == 0) {
                 System.out.println();
             }
 
+            System.out.printf(neededLengthString, i);
             i++;
         }
     }
