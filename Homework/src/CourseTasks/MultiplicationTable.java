@@ -34,24 +34,40 @@ public class MultiplicationTable {
             neededLength++;
         }
 
+        String formatString = "%" + neededLength + "s";
+
+        for (int i = 1; i <= lastNumber; i++) {
+
+            if (i == 1) {
+                System.out.printf(formatString + "|", i);
+            }
+
+            System.out.printf(formatString, i);
+
+        }
+
+        System.out.println();
+
+        int horizontalLineNeededLength = (lastNumber + 1) * neededLength;
+
+        for (int i = 0; i <= horizontalLineNeededLength; i++) {
+            System.out.print("-");
+        }
+
+        System.out.println();
+
+        String firstColumnFormatString = "%" + neededLength + "s|";
+
         for (int i = 1; i <= lastNumber; i++) {
             for (int j = 1; j <= lastNumber; j++) {
-                System.out.printf("%" + neededLength + "d", i * j);
-
                 if (j == 1) {
-                    System.out.print("|");
+                    System.out.printf(firstColumnFormatString, i * j);
                 }
+
+                System.out.printf(formatString, i * j);
             }
 
             System.out.println();
-
-            if (i == 1) {
-                for (int j = 0; j <= lastNumber * neededLength; j++) {
-                    System.out.print("-");
-                }
-
-                System.out.println();
-            }
         }
     }
 }
