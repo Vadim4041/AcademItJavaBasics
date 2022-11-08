@@ -28,18 +28,20 @@ public class MultiplicationTable {
 
         System.out.printf("Таблица умножения от 1 до %d:%n", lastNumber);
 
-        int neededLength = 2;
+        int neededLength = 1;
+        int maxNumberInMultiplicationTable = (int) Math.pow(lastNumber, 2);
 
-        for (int i = 1; lastNumber / i != 0; i *= 10) {
+        for (int i = 1; maxNumberInMultiplicationTable / i != 0; i *= 10) {
             neededLength++;
         }
 
         String formatString = "%" + neededLength + "s";
+        String firstColumnFormatString = "%" + neededLength + "s|";
 
         for (int i = 1; i <= lastNumber; i++) {
 
             if (i == 1) {
-                System.out.printf(formatString + "|", i);
+                System.out.printf(firstColumnFormatString, " ");
             }
 
             System.out.printf(formatString, i);
@@ -55,8 +57,6 @@ public class MultiplicationTable {
         }
 
         System.out.println();
-
-        String firstColumnFormatString = "%" + neededLength + "s|";
 
         for (int i = 1; i <= lastNumber; i++) {
             for (int j = 1; j <= lastNumber; j++) {
