@@ -45,7 +45,6 @@ public class MultiplicationTable {
             }
 
             System.out.printf(formatString, i);
-
         }
 
         System.out.println();
