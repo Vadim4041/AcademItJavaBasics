@@ -38,12 +38,9 @@ public class MultiplicationTable {
         String formatString = "%" + neededLength + "s";
         String firstColumnFormatString = "%" + neededLength + "s|";
 
+        System.out.printf(firstColumnFormatString, " ");
+
         for (int i = 1; i <= lastNumber; i++) {
-
-            if (i == 1) {
-                System.out.printf(firstColumnFormatString, " ");
-            }
-
             System.out.printf(formatString, i);
         }
 
@@ -58,11 +55,9 @@ public class MultiplicationTable {
         System.out.println();
 
         for (int i = 1; i <= lastNumber; i++) {
-            for (int j = 1; j <= lastNumber; j++) {
-                if (j == 1) {
-                    System.out.printf(firstColumnFormatString, i * j);
-                }
+            System.out.printf(firstColumnFormatString, i);
 
+            for (int j = 1; j <= lastNumber; j++) {
                 System.out.printf(formatString, i * j);
             }
 
