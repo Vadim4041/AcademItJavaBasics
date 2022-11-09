@@ -8,18 +8,18 @@ public class RangeMain {
         RangeClass range = new RangeClass(10, 30);
 
         System.out.println("Введите начальное значение диапазона:");
-        range.setFrom(scanner.nextInt());
+        range.setFrom(scanner.nextDouble());
         System.out.println("Начальное значение диапазона: " + range.getFrom());
 
         System.out.println("Введите конечное значение диапазона:");
-        range.setTo(scanner.nextInt());
+        range.setTo(scanner.nextDouble());
         System.out.println("Начальное конечное диапазона: " + range.getTo());
 
         System.out.println("Длина диапазона: " + range.getRange());
 
         System.out.println("Введите число для проверки вхождения в заданный диапазон:");
 
-        if (range.isInside(scanner.nextInt())) {
+        if (range.isInside(scanner.nextDouble())) {
             System.out.println("Число входит в диапазон");
         } else {
             System.out.println("Число не входит в диапазон");
