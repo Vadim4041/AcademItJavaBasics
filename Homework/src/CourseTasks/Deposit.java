@@ -27,8 +27,8 @@ public class Deposit {
         int monthsQuantity = scanner.nextInt();
 
         final int hundredPercents = 100;
-        final int monthsInYear = 12;
-        final double conversionToPercents = 1.0 / hundredPercents / monthsInYear;
+        final int monthsInYearQuantity = 12;
+        final double conversionToPercents = 1.0 / hundredPercents / monthsInYearQuantity;
 
         double monthlyIncreaseCoefficient = 1 + interestRate * conversionToPercents;
 
@@ -40,8 +40,7 @@ public class Deposit {
 
         System.out.printf("Итоговая сумма на вкладе по истечении %d месяцев: %,.2f%n", monthsQuantity, endSum);
 
-        double yield = endSum - initialSum;
-
-        System.out.printf("Доходность составила: %,.2f%n", yield);
+        double profit = endSum - initialSum;
+        System.out.printf("Доходность составила: %,.2f%n", profit);
     }
 }
