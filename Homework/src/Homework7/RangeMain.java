@@ -13,7 +13,7 @@ public class RangeMain {
 
         System.out.println("Введите конечное значение диапазона:");
         range.setTo(scanner.nextDouble());
-        System.out.println("Начальное конечное диапазона: " + range.getTo());
+        System.out.println("Конечное значение диапазона: " + range.getTo());
 
         System.out.println("Длина диапазона: " + range.getRange());
 
