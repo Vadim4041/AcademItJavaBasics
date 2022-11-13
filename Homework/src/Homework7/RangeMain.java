@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class RangeMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        RangeClass range = new RangeClass(10, 30);
+        Range range = new Range(10, 30);
 
         System.out.println("Введите начальное значение диапазона:");
         range.setFrom(scanner.nextDouble());

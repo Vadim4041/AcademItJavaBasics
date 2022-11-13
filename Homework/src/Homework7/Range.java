@@ -15,11 +15,11 @@ package Homework7;
 использованием этого класса
  */
 
-public class RangeClass {
+public class Range {
     private double from;
     private double to;
 
-    public RangeClass(double from, double to) {
+    public Range(double from, double to) {
         this.from = from;
         this.to = to;
     }
