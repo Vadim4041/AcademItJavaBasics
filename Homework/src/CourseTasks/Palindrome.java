@@ -29,8 +29,9 @@ public class Palindrome {
 
     public static boolean isPalindrome(String string) {
         boolean isPalindrome = true;
+        int stringMiddlePoint = string.length() / 2;
 
-        for (int i = 0; i < string.length() / 2; i++) {
+        for (int i = 0; i < stringMiddlePoint; i++) {
             if (string.charAt(i) != string.charAt(string.length() - i - 1)) {
                 isPalindrome = false;
                 break;
