@@ -35,11 +35,11 @@ public class CharactersCount {
             }
         }
 
-        System.out.println("Количество букв в веденной строке: " + lettersCount);
-        System.out.println("Количество цифр в веденной строке: " + digitsCount);
-        System.out.println("Количество пробельных символов в веденной строке: " + whitespacesCount);
+        System.out.println("Количество букв в введенной строке: " + lettersCount);
+        System.out.println("Количество цифр в введенной строке: " + digitsCount);
+        System.out.println("Количество пробельных символов в введенной строке: " + whitespacesCount);
 
         int otherCharactersCount = stringLength - (lettersCount + digitsCount + whitespacesCount);
-        System.out.println("Количество остальных символов в веденной строке: " + otherCharactersCount);
+        System.out.println("Количество остальных символов в введенной строке: " + otherCharactersCount);
     }
 }
