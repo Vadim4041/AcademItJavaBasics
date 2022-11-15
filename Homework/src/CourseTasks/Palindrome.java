@@ -20,6 +20,13 @@ public class Palindrome {
         System.out.println("Введите строку:");
         String string = scanner.nextLine();
 
+        for (int i = 0; i < string.length(); i++) {
+            if (!Character.isLetter(string.charAt(i)) && !Character.isWhitespace(string.charAt(i))) {
+                System.out.println("В данной строке содержатся символы кроме букв и пробелов. Попробуйте еще раз.");
+                return;
+            }
+        }
+
         if (isPalindrome(string)) {
             System.out.println("Данная строка является палиндромом");
         } else {
@@ -28,16 +35,26 @@ public class Palindrome {
     }
 
     public static boolean isPalindrome(String string) {
-        boolean isPalindrome = true;
-        int stringMiddlePoint = string.length() / 2;
+        int leftWhitespaceIndex = 0;
+        int rightWhitespaceIndex = 0;
 
-        for (int i = 0; i < stringMiddlePoint; i++) {
-            if (string.charAt(i) != string.charAt(string.length() - i - 1)) {
-                isPalindrome = false;
-                break;
+        for (int i = 0; i < string.length() / 2; i++) {
+            while (Character.isWhitespace(string.charAt(i + leftWhitespaceIndex))) {
+                leftWhitespaceIndex++;
+            }
+
+            while (Character.isWhitespace(string.charAt(string.length() - 1 - i - rightWhitespaceIndex))) {
+                rightWhitespaceIndex++;
+            }
+
+            char frontLetter = Character.toLowerCase(string.charAt(i + leftWhitespaceIndex));
+            char backLetter = Character.toLowerCase(string.charAt(string.length() - 1 - i - rightWhitespaceIndex));
+
+            if (frontLetter != backLetter) {
+                return false;
             }
         }
 
-        return isPalindrome;
+        return true;
     }
 }
