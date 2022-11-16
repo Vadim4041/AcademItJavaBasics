@@ -35,22 +35,22 @@ public class Palindrome {
     }
 
     public static boolean isPalindrome(String string) {
-        int leftWhitespaceIndex = 0;
-        int rightWhitespaceIndex = 0;
+        int leftWhitespacesCount = 0;
+        int rightWhitespacesCount = 0;
 
         for (int i = 0; i < string.length() / 2; i++) {
-            while (Character.isWhitespace(string.charAt(i + leftWhitespaceIndex))) {
-                leftWhitespaceIndex++;
+            while (Character.isWhitespace(string.charAt(i + leftWhitespacesCount))) {
+                leftWhitespacesCount++;
             }
 
-            while (Character.isWhitespace(string.charAt(string.length() - 1 - i - rightWhitespaceIndex))) {
-                rightWhitespaceIndex++;
+            while (Character.isWhitespace(string.charAt(string.length() - 1 - i - rightWhitespacesCount))) {
+                rightWhitespacesCount++;
             }
 
-            char frontLetter = Character.toLowerCase(string.charAt(i + leftWhitespaceIndex));
-            char backLetter = Character.toLowerCase(string.charAt(string.length() - 1 - i - rightWhitespaceIndex));
+            char leftLetter = Character.toLowerCase(string.charAt(i + leftWhitespacesCount));
+            char rightLetter = Character.toLowerCase(string.charAt(string.length() - 1 - i - rightWhitespacesCount));
 
-            if (frontLetter != backLetter) {
+            if (leftLetter != rightLetter) {
                 return false;
             }
         }
