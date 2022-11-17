@@ -5,7 +5,7 @@ package Homework9;
 которые являются четными числами
  */
 
-public class ArrayAverage {
+public class ArrayEvenNumbersAverage {
     public static void main(String[] args) {
         int[] array = {1, 2, 8, 5, 6};
 
