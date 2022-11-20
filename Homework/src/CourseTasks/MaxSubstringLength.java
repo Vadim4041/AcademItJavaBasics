@@ -20,13 +20,16 @@ public class MaxSubstringLength {
         System.out.println("Введите строку:");
         String string = scanner.nextLine();
 
-        System.out.println("Длина максимальной по длине подстроки в введенной строке: " + findMaxSubstringLength(string));
+        System.out.println("Длина максимальной по длине подстроки в введенной строке: " + getMaxSubstringLength(string));
     }
 
-    public static int findMaxSubstringLength(String string) {
-        int previousSubstringLength = 1;
-        int currentSubstringLength = 1;
-        int maxSubstringLength = 1;
+    public static int getMaxSubstringLength(String string) {
+        int currentSubstringLength = 0;
+        int maxSubstringLength = 0;
+
+        if (string.length() == 0) {
+            return 0;
+        }
 
         for (int i = 1; i < string.length(); i++) {
             char previousCharacter = Character.toLowerCase(string.charAt(i - 1));
@@ -35,12 +38,11 @@ public class MaxSubstringLength {
             if (currentCharacter == previousCharacter) {
                 currentSubstringLength++;
             } else {
-                maxSubstringLength = Math.max(maxSubstringLength, Math.max(currentSubstringLength, previousSubstringLength));
-                previousSubstringLength = currentSubstringLength;
-                currentSubstringLength = 1;
+                maxSubstringLength = Math.max(maxSubstringLength, currentSubstringLength);
+                currentSubstringLength = 0;
             }
         }
 
-        return maxSubstringLength;
+        return Math.max(maxSubstringLength, currentSubstringLength) + 1;
     }
 }
