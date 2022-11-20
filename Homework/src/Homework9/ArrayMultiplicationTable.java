@@ -13,20 +13,24 @@ public class ArrayMultiplicationTable {
     public static void main(String[] args) {
         int[][] multiplicationTable = createMultiplicationTable(10);
 
-        for (int[] e : multiplicationTable) {
-            System.out.println(Arrays.toString(e));
+        for (int[] row : multiplicationTable) {
+            for (int multiplicationResult : row) {
+                System.out.print(multiplicationResult + " ");
+            }
+
+            System.out.println();
         }
     }
 
     public static int[][] createMultiplicationTable(int size) {
-        int[][] array = new int[size][size];
+        int[][] multiplicationTable = new int[size][size];
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = (i + 1) * (j + 1);
+        for (int i = 0; i < multiplicationTable.length; i++) {
+            for (int j = 0; j < multiplicationTable[i].length; j++) {
+                multiplicationTable[i][j] = (i + 1) * (j + 1);
             }
         }
 
-        return array;
+        return multiplicationTable;
     }
 }
