@@ -20,11 +20,22 @@ public class Palindrome {
         System.out.println("Введите строку:");
         String string = scanner.nextLine();
 
+        if (string.length() == 0) {
+            System.out.println("Строка пустая. Попробуйте еще раз");
+            return;
+        }
+
+        int whitespacesCount = 0;
+
         for (int i = 0; i < string.length(); i++) {
-            if (!Character.isLetter(string.charAt(i)) && !Character.isWhitespace(string.charAt(i))) {
-                System.out.println("В данной строке содержатся символы кроме букв и пробелов. Попробуйте еще раз.");
-                return;
+            if (Character.isWhitespace(string.charAt(i))) {
+                whitespacesCount++;
             }
+        }
+
+        if (whitespacesCount == string.length()) {
+            System.out.println("Строка состоит только из пробелов. Попробуйте еще раз");
+            return;
         }
 
         if (isPalindrome(string)) {
