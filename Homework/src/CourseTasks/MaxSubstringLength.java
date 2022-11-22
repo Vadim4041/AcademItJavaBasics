@@ -24,12 +24,12 @@ public class MaxSubstringLength {
     }
 
     public static int getMaxSubstringLength(String string) {
-        int currentSubstringLength = 0;
-        int maxSubstringLength = 0;
-
         if (string.length() == 0) {
             return 0;
         }
+
+        int currentSubstringLength = 0;
+        int maxSubstringLength = 0;
 
         for (int i = 1; i < string.length(); i++) {
             char previousCharacter = Character.toLowerCase(string.charAt(i - 1));
