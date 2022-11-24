@@ -15,15 +15,19 @@ public class BinarySearch {
     public static void main(String[] args) {
         int[] array = {1, 8, 15, 22, 45, 78};
 
-        System.out.println(binarySearch(array, 0, 5, 22));
         System.out.println(binarySearch(array, 78));
     }
 
-    public static int binarySearch(int[] array, int left, int right, int x) {
+    public static int binarySearch(int[] array, int x) {
+        if (array.length == 0) {
+            return 0;
+        }
+
+        int left = 0;
+        int right = array.length - 1;
         int middle = (left + right) / 2;
 
         while (array[middle] != x) {
-
             if (left > right) {
                 return -1;
             }
@@ -38,9 +42,5 @@ public class BinarySearch {
         }
 
         return x;
-    }
-
-    public static int binarySearch(int[] array, int x) {
-        return binarySearch(array, 0, array.length - 1, x);
     }
 }
