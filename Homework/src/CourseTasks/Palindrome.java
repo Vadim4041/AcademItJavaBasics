@@ -53,9 +53,6 @@ public class Palindrome {
                 continue;
             }
 
-            leftLetter = Character.toLowerCase(string.charAt(i + leftOffset));
-            rightLetter = Character.toLowerCase(string.charAt(string.length() - 1 - i - rightOffset));
-
             if (leftLetter != rightLetter) {
                 return false;
             }
