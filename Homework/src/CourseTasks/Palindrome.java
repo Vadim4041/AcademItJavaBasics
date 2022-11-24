@@ -39,7 +39,7 @@ public class Palindrome {
             char leftLetter = Character.toLowerCase(string.charAt(i + leftOffset));
             char rightLetter = Character.toLowerCase(string.charAt(string.length() - 1 - i - rightOffset));
 
-            if (Character.isWhitespace(rightLetter)&Character.isWhitespace(leftLetter)) {
+            if (Character.isWhitespace(rightLetter) & Character.isWhitespace(leftLetter)) {
                 continue;
             }
 
