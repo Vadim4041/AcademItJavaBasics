@@ -6,10 +6,11 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] array = {100, 55, 99, 22, 45, 78};
 
-        System.out.println(Arrays.toString(sort(array)));
+        sort(array);
+        System.out.println(Arrays.toString(array));
     }
 
-    public static int[] sort(int[] array) {
+    public static void sort(int[] array) {
         for (int j = 0; j < array.length; j++) {
             boolean isNotSwitched = true;
 
@@ -24,10 +25,8 @@ public class BubbleSort {
             }
 
             if (isNotSwitched) {
-                return array;
+                return;
             }
         }
-
-        return array;
     }
 }
