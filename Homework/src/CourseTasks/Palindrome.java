@@ -20,24 +20,6 @@ public class Palindrome {
         System.out.println("Введите строку:");
         String string = scanner.nextLine();
 
-        if (string.length() == 0) {
-            System.out.println("Строка пустая. Попробуйте еще раз");
-            return;
-        }
-
-        int whitespacesCount = 0;
-
-        for (int i = 0; i < string.length(); i++) {
-            if (Character.isWhitespace(string.charAt(i))) {
-                whitespacesCount++;
-            }
-        }
-
-        if (whitespacesCount == string.length()) {
-            System.out.println("Строка состоит только из пробелов. Попробуйте еще раз");
-            return;
-        }
-
         if (isPalindrome(string)) {
             System.out.println("Данная строка является палиндромом");
         } else {
@@ -46,20 +28,33 @@ public class Palindrome {
     }
 
     public static boolean isPalindrome(String string) {
-        int leftWhitespacesCount = 0;
-        int rightWhitespacesCount = 0;
+        if (string.length() == 0) {
+            return false;
+        }
 
-        for (int i = 0; i < string.length() / 2; i++) {
-            while (Character.isWhitespace(string.charAt(i + leftWhitespacesCount))) {
-                leftWhitespacesCount++;
+        int leftOffset = 0;
+        int rightOffset = 0;
+
+        for (int i = 0; i < string.length() - rightOffset + leftOffset; i++) {
+            char leftLetter = Character.toLowerCase(string.charAt(i + leftOffset));
+            char rightLetter = Character.toLowerCase(string.charAt(string.length() - 1 - i - rightOffset));
+
+            if (Character.isWhitespace(rightLetter)&Character.isWhitespace(leftLetter)) {
+                continue;
             }
 
-            while (Character.isWhitespace(string.charAt(string.length() - 1 - i - rightWhitespacesCount))) {
-                rightWhitespacesCount++;
+            if (Character.isWhitespace(rightLetter)) {
+                leftOffset--;
+                continue;
             }
 
-            char leftLetter = Character.toLowerCase(string.charAt(i + leftWhitespacesCount));
-            char rightLetter = Character.toLowerCase(string.charAt(string.length() - 1 - i - rightWhitespacesCount));
+            if (Character.isWhitespace(leftLetter)) {
+                rightOffset--;
+                continue;
+            }
+
+            leftLetter = Character.toLowerCase(string.charAt(i + leftOffset));
+            rightLetter = Character.toLowerCase(string.charAt(string.length() - 1 - i - rightOffset));
 
             if (leftLetter != rightLetter) {
                 return false;
