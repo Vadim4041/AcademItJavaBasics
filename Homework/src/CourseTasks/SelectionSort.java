@@ -4,27 +4,31 @@ import java.util.Arrays;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        int[] array = {100, 55, 99, 22, 45, 78};
+        int[] array = {22, 45, 55, 78, 99, 100};
 
         sort(array);
         System.out.println(Arrays.toString(array));
     }
 
     public static void sort(int[] array) {
-        for (int j = 0; j < array.length; j++) {
-            int minNumberIndex = j;
-            int min = array[minNumberIndex];
+        for (int i = 0; i < array.length; i++) {
+            boolean isSwitched = false;
+            int minIndex = i;
 
-            for (int i = j + 1; i < array.length; i++) {
-                if (array[i] < min) {
-                    minNumberIndex = i;
-                    min = array[minNumberIndex];
+            for (int j = i; j < array.length; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
+                    isSwitched = true;
                 }
             }
 
-            int temp = array[j];
-            array[j] = array[minNumberIndex];
-            array[minNumberIndex] = temp;
+            if (!isSwitched) {
+                return;
+            }
+
+            int temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
         }
     }
 }
