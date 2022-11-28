@@ -11,20 +11,20 @@ public class BubbleSort {
     }
 
     public static void sort(int[] array) {
-        for (int j = 0; j < array.length; j++) {
-            boolean isNotSwitched = true;
+        for (int i = array.length - 1; i >= 1; i--) {
+            boolean isSwitched = false;
 
-            for (int i = 0; i < array.length - 1 - j; i++) {
-                if (array[i] > array[i + 1]) {
-                    int temp = array[i];
-                    array[i] = array[i + 1];
-                    array[i + 1] = temp;
+            for (int j = 0; j < i; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
 
-                    isNotSwitched = false;
+                    isSwitched = true;
                 }
             }
 
-            if (isNotSwitched) {
+            if (!isSwitched) {
                 return;
             }
         }
