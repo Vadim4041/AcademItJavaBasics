@@ -6,6 +6,8 @@ package Homework12;
 • Использовать split и Integer.parseInt
  */
 
+import java.util.Arrays;
+
 public class StringSplit {
     public static void main(String[] args) {
         String numbersLine = "1, 2, 3, 4, 5";
@@ -13,11 +15,14 @@ public class StringSplit {
         String[] numberStrings = numbersLine.split(", ");
 
         int sum = 0;
+        int numberStringsLength = numberStrings.length;
+        int[] numberIntegers = new int[numberStringsLength];
 
-        for (String e : numberStrings) {
-            sum += Integer.parseInt(e);
+        for (int i = 0; i < numberStringsLength; i++) {
+            numberIntegers[i] = Integer.parseInt(numberStrings[i]);
+            sum += numberIntegers[i];
         }
 
-        System.out.println("Сумма чисел массива равна: " + sum);
+        System.out.printf("Сумма чисел массива %s равна: %d%n", Arrays.toString(numberIntegers), sum);
     }
 }
