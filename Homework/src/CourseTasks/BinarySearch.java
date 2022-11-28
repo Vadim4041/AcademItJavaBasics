@@ -19,28 +19,21 @@ public class BinarySearch {
     }
 
     public static int binarySearch(int[] array, int x) {
-        if (array.length == 0) {
-            return 0;
-        }
-
         int left = 0;
         int right = array.length - 1;
-        int middle = (left + right) / 2;
 
-        while (array[middle] != x) {
-            if (left > right) {
-                return -1;
-            }
+        while (left <= right) {
+            int middle = (left + right) / 2;
 
-            if (array[middle] < x) {
+            if (array[middle] == x) {
+                return middle;
+            } else if (array[middle] < x) {
                 left = middle + 1;
-            } else {
-                right = middle - 1;
+            } else if (array[middle] > x) {
+                left = middle - 1;
             }
-
-            middle = (left + right) / 2;
         }
 
-        return x;
+        return -1;
     }
 }
