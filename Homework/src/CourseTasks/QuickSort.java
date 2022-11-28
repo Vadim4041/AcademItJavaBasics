@@ -4,24 +4,19 @@ import java.util.Arrays;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] array = {100, 55, 99, 22, 45, 78};
+        int[] array = {22, 45, 55, 78, 99, 100};
 
         sort(array);
         System.out.println(Arrays.toString(array));
     }
 
     public static void sort(int[] array, int left, int right) {
-        if (array.length <= 1) {
-            return;
-        }
-
         if (left >= right) {
             return;
         }
 
-        int x = array[left];
-
-        int i = left, j = right;
+        int i = left;
+        int j = right;
 
         if (j - i == 1) {
             if (array[i] > array[j]) {
@@ -33,6 +28,8 @@ public class QuickSort {
 
             return;
         }
+
+        int x = array[left];
 
         while (i <= j) {
             while (array[i] < x) {
@@ -47,6 +44,7 @@ public class QuickSort {
                 int temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
+
                 i++;
                 j--;
             }
