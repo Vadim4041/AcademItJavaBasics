@@ -14,15 +14,16 @@ public class InsertionSort {
         for (int i = 1; i < array.length; i++) {
             int temp = array[i];
 
-            for (int j = i - 1; j >= 0; j--) {
-                if (temp >= array[j]) {
-                    array[j + 1] = temp;
-                    break;
-                } else {
+            int j = i - 1;
+            for (; j >= 0; j--) {
+                if (temp < array[j]) {
                     array[j + 1] = array[j];
-                    array[j] = temp;
+                } else {
+                    break;
                 }
             }
+
+            array[j + 1] = temp;
         }
     }
 }
