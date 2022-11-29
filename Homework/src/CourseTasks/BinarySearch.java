@@ -27,9 +27,11 @@ public class BinarySearch {
 
             if (array[middle] == x) {
                 return middle;
-            } else if (array[middle] < x) {
+            }
+
+            if (array[middle] < x) {
                 left = middle + 1;
-            } else if (array[middle] > x) {
+            } else {
                 left = middle - 1;
             }
         }
