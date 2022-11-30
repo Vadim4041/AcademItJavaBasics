@@ -6,49 +6,50 @@ public class HeapSort {
     public static void main(String[] args) {
         int[] array = {5, 10, 3, 14, 16, 1, 33, 52, 7};
 
-        sort(array);
+        heapSort(array);
         System.out.println(Arrays.toString(array));
     }
 
-    public static void sort(int[] array) {
-        int arrayLength = array.length;
+    // Функция "просеивания" через кучу - формирование кучи
+    public static void siftDown(int[] numbers, int root, int bottom) {
+        int maxChildIndex; // индекс максимального потомка
+        // Пока не дошли до последнего ряда
+        while (root * 2 <= bottom) {
+            if (root * 2 == bottom) {   // если мы в последнем ряду,
+                maxChildIndex = root * 2;
+            }   // запоминаем левый потомок
+            // иначе запоминаем больший потомок из двух
+            else if (numbers[root * 2] > numbers[root * 2 + 1]) {
+                maxChildIndex = root * 2;
+            } else {
+                maxChildIndex = root * 2 + 1;
+            }
+            // если элемент вершины не меньше максимального потомка
+            if (numbers[root] >= numbers[maxChildIndex]) {
+                // пирамида сформирована
+                return;
+            }
 
-        // Построение кучи
-        for (int i = arrayLength / 2 - 1; i >= 0; i--)
-            convertToHeap(array, arrayLength, i);
-
-        // Один за другим извлекаем элементы из кучи
-        for (int i = arrayLength - 1; i >= 0; i--) {
-            // Перемещаем текущий элемент в конец
-            int temp = array[0];
-            array[0] = array[i];
-            array[i] = temp;
-
-            // Вызываем процедуру convertToHeap на уменьшенной куче
-            convertToHeap(array, i, 0);
+            int temp = numbers[root]; // меняем их местами
+            numbers[root] = numbers[maxChildIndex];
+            numbers[maxChildIndex] = temp;
+            root = maxChildIndex;
         }
     }
 
-    public static void convertToHeap(int[] array, int arrayLength, int i) {
-        int parentIndex = i; // Инициализируем наибольший элемент как родитель
-        int child1Index = 2 * i + 1; // ребенок1 = 2*i + 1
-        int child2Index = 2 * i + 2; // ребенок2 = 2*i + 2
-
-        // Если ребенок больше родителя
-        if (child1Index < arrayLength && array[child1Index] > array[parentIndex])
-            parentIndex = child1Index;
-
-        // Если ребенок больше, чем самый большой ребенок на данный момент
-        if (child2Index < arrayLength && array[child2Index] > array[parentIndex])
-            parentIndex = child2Index;
-        // Если самый большой ребенок не родитель
-        if (parentIndex != i) {
-            int temp = array[i];
-            array[i] = array[parentIndex];
-            array[parentIndex] = temp;
-
-            // Рекурсивно преобразуем в двоичную кучу затронутое поддерево
-            convertToHeap(array, arrayLength, parentIndex);
+    // Функция сортировки на куче
+    public static void heapSort(int[] numbers) {
+        int arraySize = numbers.length;
+        // Формируем нижний ряд пирамиды
+        for (int i = (arraySize / 2); i >= 0; i--) {
+            siftDown(numbers, i, arraySize - 1);
+        }
+        // Просеиваем через пирамиду остальные элементы
+        for (int i = arraySize - 1; i >= 1; i--) {
+            int temp = numbers[0];
+            numbers[0] = numbers[i];
+            numbers[i] = temp;
+            siftDown(numbers, 0, i - 1);
         }
     }
 }
