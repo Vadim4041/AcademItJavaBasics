@@ -15,6 +15,7 @@ public class InsertionSort {
             int temp = array[i];
 
             int j = i - 1;
+
             for (; j >= 0; j--) {
                 if (temp < array[j]) {
                     array[j + 1] = array[j];
