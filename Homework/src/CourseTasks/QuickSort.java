@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] array = {22, 45, 55, 78, 99, 100};
+        int[] array = {158, 100, 55, 99, 58, 101};
 
         sort(array);
         System.out.println(Arrays.toString(array));
@@ -15,21 +15,19 @@ public class QuickSort {
             return;
         }
 
-        int i = left;
-        int j = right;
-
-        if (j - i == 1) {
-            if (array[i] > array[j]) {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-                return;
+        if (right - left == 1) {
+            if (array[left] > array[right]) {
+                int temp = array[left];
+                array[left] = array[right];
+                array[right] = temp;
             }
 
             return;
         }
 
         int x = array[left];
+        int i = left;
+        int j = right;
 
         while (i <= j) {
             while (array[i] < x) {
