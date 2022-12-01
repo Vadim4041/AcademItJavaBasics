@@ -12,21 +12,21 @@ http://SomeServerName/abcd/dfdf.htm?dfdf=dfdf
 • Использовать indexOf и substring
  */
 
-public class URL {
+public class Url {
     public static void main(String[] args) {
         String siteUrl = "http://SomeServerName/abcd/dfdf.htm?dfdf=dfdf";
 
-        System.out.println(parseServerName(siteUrl));
+        System.out.println(getServerName(siteUrl));
     }
 
-    public static String parseServerName(String siteUrl) {
-        int startServerNameIndex = siteUrl.indexOf("://") + 3;
-        int endServerNameIndex = siteUrl.indexOf("/", startServerNameIndex);
+    public static String getServerName(String url) {
+        int startServerNameIndex = url.indexOf("://") + 3;
+        int endServerNameIndex = url.indexOf("/", startServerNameIndex);
 
-        if (siteUrl.lastIndexOf("/") == startServerNameIndex - 1) {
-            endServerNameIndex = siteUrl.length();
+        if (endServerNameIndex == -1) {
+            endServerNameIndex = url.length();
         }
 
-        return siteUrl.substring(startServerNameIndex, endServerNameIndex);
+        return url.substring(startServerNameIndex, endServerNameIndex);
     }
 }
