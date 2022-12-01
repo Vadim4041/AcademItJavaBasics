@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class EntriesCount {
+public class SubstringsCount {
     public static void main(String[] args) throws FileNotFoundException {
         int entriesCount = 0;
 
