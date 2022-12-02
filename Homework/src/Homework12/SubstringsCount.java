@@ -29,14 +29,12 @@ public class SubstringsCount {
         String stringInLowerCase = string.toLowerCase();
         String substringInLowerCase = substring.toLowerCase();
         int count = 0;
-        int startFrom = 0;
-        int substringIndex = stringInLowerCase.indexOf(substringInLowerCase, startFrom);
+        int substringIndex = stringInLowerCase.indexOf(substringInLowerCase);
         int substringLength = substringInLowerCase.length();
 
         while (substringIndex != -1) {
             count++;
-            startFrom = substringIndex + substringLength;
-            substringIndex = stringInLowerCase.indexOf(substringInLowerCase, startFrom);
+            substringIndex = stringInLowerCase.indexOf(substringInLowerCase, substringIndex + substringLength);
         }
 
         return count;
