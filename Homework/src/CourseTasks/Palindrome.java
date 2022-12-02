@@ -28,23 +28,30 @@ public class Palindrome {
     }
 
     public static boolean isPalindrome(String string) {
-        int leftCharacterIndex = -1;
-        int rightCharacterIndex = string.length();
+        int leftCharacterIndex = 0;
+        int rightCharacterIndex = string.length() - 1;
 
-        while (leftCharacterIndex < rightCharacterIndex) {
-            do {
+        if (rightCharacterIndex == 0) {
+            return true;
+        }
+
+        for (int i = 0; i < string.length(); i++, leftCharacterIndex++, rightCharacterIndex--) {
+            while (leftCharacterIndex < rightCharacterIndex && !Character.isLetter(string.charAt(leftCharacterIndex))) {
                 leftCharacterIndex++;
-            } while (leftCharacterIndex < rightCharacterIndex && !Character.isLetter(string.charAt(leftCharacterIndex)));
+            }
 
-            do {
+            while (rightCharacterIndex > leftCharacterIndex && !Character.isLetter(string.charAt(rightCharacterIndex))) {
                 rightCharacterIndex--;
-            } while (rightCharacterIndex > leftCharacterIndex && !Character.isLetter(string.charAt(rightCharacterIndex)));
+            }
+
+            if (leftCharacterIndex >= rightCharacterIndex) {
+                return true;
+            }
 
             if (Character.toLowerCase(string.charAt(leftCharacterIndex)) != Character.toLowerCase(string.charAt(rightCharacterIndex))) {
                 return false;
             }
         }
-
         return true;
     }
 }
