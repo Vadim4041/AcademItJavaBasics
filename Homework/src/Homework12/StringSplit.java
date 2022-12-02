@@ -15,14 +15,13 @@ public class StringSplit {
         String[] numberStrings = numbersLine.split(", ");
 
         int sum = 0;
-        int numberStringsLength = numberStrings.length;
-        int[] numberIntegers = new int[numberStringsLength];
+        int[] integerNumbers = new int[numberStrings.length];
 
-        for (int i = 0; i < numberStringsLength; i++) {
-            numberIntegers[i] = Integer.parseInt(numberStrings[i]);
-            sum += numberIntegers[i];
+        for (int i = 0; i < numberStrings.length; i++) {
+            integerNumbers[i] = Integer.parseInt(numberStrings[i]);
+            sum += integerNumbers[i];
         }
 
-        System.out.printf("Сумма чисел массива %s равна: %d%n", Arrays.toString(numberIntegers), sum);
+        System.out.printf("Сумма чисел массива %s равна: %d%n", Arrays.toString(integerNumbers), sum);
     }
 }
