@@ -38,6 +38,7 @@ public class ConvertToMonochrome {
                 for (int i = 0; i < COLORS_COUNT_IN_RGB; ++i) {
                     pixel[i] = greyPixel;
                 }
+
                 // записываем значения цветов для пикселя в картинку
                 raster.setPixel(x, y, pixel);
             }
