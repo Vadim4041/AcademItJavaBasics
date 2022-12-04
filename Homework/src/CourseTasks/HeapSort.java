@@ -11,44 +11,46 @@ public class HeapSort {
     }
 
     // Функция "просеивания" через кучу - формирование кучи
-    public static void siftDown(int[] numbers, int root, int bottom) {
-        int maxChildIndex; // индекс максимального потомка
+    public static void siftDown(int[] numbers, int rootIndex, int endIndex) {
         // Пока не дошли до последнего ряда
-        while (root * 2 <= bottom) {
-            if (root * 2 == bottom) {   // если мы в последнем ряду,
-                maxChildIndex = root * 2;
-            }   // запоминаем левый потомок
-            // иначе запоминаем больший потомок из двух
-            else if (numbers[root * 2] > numbers[root * 2 + 1]) {
-                maxChildIndex = root * 2;
+        while (rootIndex * 2 <= endIndex) {
+            int maxChildIndex; // индекс максимального потомка
+
+            if (rootIndex * 2 == endIndex) {   // если мы в последнем ряду, запоминаем левый потомок, иначе запоминаем больший потомок из двух
+                maxChildIndex = rootIndex * 2;
+            } else if (numbers[rootIndex * 2] > numbers[rootIndex * 2 + 1]) {
+                maxChildIndex = rootIndex * 2;
             } else {
-                maxChildIndex = root * 2 + 1;
+                maxChildIndex = rootIndex * 2 + 1;
             }
+
             // если элемент вершины не меньше максимального потомка
-            if (numbers[root] >= numbers[maxChildIndex]) {
+            if (numbers[rootIndex] >= numbers[maxChildIndex]) {
                 // пирамида сформирована
                 return;
             }
 
-            int temp = numbers[root]; // меняем их местами
-            numbers[root] = numbers[maxChildIndex];
+            int temp = numbers[rootIndex]; // меняем их местами
+            numbers[rootIndex] = numbers[maxChildIndex];
             numbers[maxChildIndex] = temp;
-            root = maxChildIndex;
+
+            rootIndex = maxChildIndex;
         }
     }
 
     // Функция сортировки на куче
     public static void heapSort(int[] numbers) {
-        int arraySize = numbers.length;
         // Формируем нижний ряд пирамиды
-        for (int i = (arraySize / 2); i >= 0; i--) {
-            siftDown(numbers, i, arraySize - 1);
+        for (int i = numbers.length / 2 - 1; i >= 0; i--) {
+            siftDown(numbers, i, numbers.length - 1);
         }
+
         // Просеиваем через пирамиду остальные элементы
-        for (int i = arraySize - 1; i >= 1; i--) {
+        for (int i = numbers.length - 1; i >= 1; i--) {
             int temp = numbers[0];
             numbers[0] = numbers[i];
             numbers[i] = temp;
+
             siftDown(numbers, 0, i - 1);
         }
     }
