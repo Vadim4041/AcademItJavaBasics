@@ -28,14 +28,14 @@ public class Palindrome {
     }
 
     public static boolean isPalindrome(String string) {
-        int leftCharacterIndex = 0;
-        int rightCharacterIndex = string.length() - 1;
+//        int leftCharacterIndex = 0;
+//        int rightCharacterIndex = string.length() - 1;
 
-        if (rightCharacterIndex == 0) {
+        if (string.length() - 1 == 0) {
             return true;
         }
 
-        for (int i = 0; i < string.length(); i++, leftCharacterIndex++, rightCharacterIndex--) {
+        for (int leftCharacterIndex = 0, rightCharacterIndex = string.length() - 1; leftCharacterIndex < string.length() / 2; leftCharacterIndex++, rightCharacterIndex--) {
             while (leftCharacterIndex < rightCharacterIndex && !Character.isLetter(string.charAt(leftCharacterIndex))) {
                 leftCharacterIndex++;
             }
@@ -52,6 +52,7 @@ public class Palindrome {
                 return false;
             }
         }
+
         return true;
     }
 }
