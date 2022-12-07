@@ -9,16 +9,16 @@ import java.io.IOException;
 public class Blur {
     public static void main(String[] args) throws IOException {
         // читаем картинку из файлу image.jpg в объект класса BufferedImage
-        BufferedImage imageIn = ImageIO.read(new File("Homework/src/CourseTasks/Homework13/image.jpg"));
-        BufferedImage imageOut = ImageIO.read(new File("Homework/src/CourseTasks/Homework13/out.png"));
+        BufferedImage inputImage = ImageIO.read(new File("Homework/src/CourseTasks/Homework13/image.jpg"));
+        BufferedImage outputImage = new BufferedImage(inputImage.getWidth(), inputImage.getHeight(), inputImage.getType());
 
         // получаем растр - объект, внутри которого содержится двумерный массив пикселей
-        WritableRaster rasterIn = imageIn.getRaster();
-        WritableRaster rasterOut = imageOut.getRaster();
+        WritableRaster inputRaster = inputImage.getRaster();
+        WritableRaster outputRaster = outputImage.getRaster();
 
         // получаем ширину и высоту картинки
-        int width = rasterIn.getWidth();
-        int height = rasterIn.getHeight();
+        int width = inputRaster.getWidth();
+        int height = inputRaster.getHeight();
 
         final int COLORS_COUNT_IN_RGB = 3;
 
@@ -27,45 +27,49 @@ public class Blur {
         // т.е. по индексу 0 будет лежать красная компонента, по индексу 1 - зеленая, по индексу 2 - синяя
         int[] pixel = new int[COLORS_COUNT_IN_RGB];
 
-        double[][] pixelMatrix = {
+        double[][] matrix = {
                 {1.0 / 9, 1.0 / 9, 1.0 / 9},
                 {1.0 / 9, 1.0 / 9, 1.0 / 9},
                 {1.0 / 9, 1.0 / 9, 1.0 / 9}
         };
 
-        final int RESOLUTION = 3;
-        int offset = (RESOLUTION - 1) / 2;
+        int offset = matrix.length / 2;
+
         // цикл по строкам картинки
         for (int y = offset; y < height - offset; ++y) {
             // цикл по пикселям строки
             for (int x = offset; x < width - offset; ++x) {
                 // делаем размытие
-                int redColorAltered = 0;
-                int greedColorAltered = 0;
-                int blueColorAltered = 0;
+                double redColorAltered = 0;
+                double greedColorAltered = 0;
+                double blueColorAltered = 0;
 
-                for (int y1 = y - offset; y1 <= y + offset; y1++) {
-                    for (int x1 = x - offset; x1 <= x + offset; x1++) {
-                        rasterIn.getPixel(x1, y1, pixel);
-                        redColorAltered += pixel[0] * pixelMatrix[y1 - y + offset][x1 - x + offset];
-                        greedColorAltered += pixel[1] * pixelMatrix[y1 - y + offset][x1 - x + offset];
-                        blueColorAltered += pixel[2] * pixelMatrix[y1 - y + offset][x1 - x + offset];
+                int offsetY = y - offset;
+                int offsetX = x - offset;
+                for (int adjacentPixelY = offsetY; adjacentPixelY <= y + offset; adjacentPixelY++) {
+                    for (int adjacentPixelX = offsetX; adjacentPixelX <= x + offset; adjacentPixelX++) {
+                        inputRaster.getPixel(adjacentPixelX, adjacentPixelY, pixel);
+                        redColorAltered += pixel[0] * matrix[adjacentPixelY - offsetY][adjacentPixelX - offsetX];
+                        greedColorAltered += pixel[1] * matrix[adjacentPixelY - offsetY][adjacentPixelX - offsetX];
+                        blueColorAltered += pixel[2] * matrix[adjacentPixelY - offsetY][adjacentPixelX - offsetX];
                     }
                 }
 
-                pixel[0] = saturate(redColorAltered);
-                pixel[1] = saturate(greedColorAltered);
-                pixel[2] = saturate(blueColorAltered);
+                pixel[0] = saturate((int) Math.round(redColorAltered));
+                pixel[1] = saturate((int) Math.round(greedColorAltered));
+                pixel[2] = saturate((int) Math.round(blueColorAltered));
                 // записываем значения цветов для пикселя в картинку
-                rasterOut.setPixel(x, y, pixel);
+                outputRaster.setPixel(x, y, pixel);
             }
         }
 
         // сохраняем картинку в файл
-        ImageIO.write(imageOut, "png", new File("Homework/src/CourseTasks/Homework13/out.png"));
+        ImageIO.write(outputImage, "png", new File("Homework/src/CourseTasks/Homework13/out.png"));
     }
 
     public static int saturate(int color) {
-        return Math.min(Math.max(color, 0), 255);
+        if (color > 255) {
+            return 255;
+        } else return Math.max(color, 0);
     }
 }
