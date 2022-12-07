@@ -44,14 +44,12 @@ public class Blur {
                 double greedColorAltered = 0;
                 double blueColorAltered = 0;
 
-                int offsetY = y - offset;
-                int offsetX = x - offset;
-                for (int adjacentPixelY = offsetY; adjacentPixelY <= y + offset; adjacentPixelY++) {
-                    for (int adjacentPixelX = offsetX; adjacentPixelX <= x + offset; adjacentPixelX++) {
+                for (int adjacentPixelY = y - offset, i = 0; i <= matrix.length - 1; adjacentPixelY++, i++) {
+                    for (int adjacentPixelX = x - offset, j = 0; j <= matrix.length - 1; adjacentPixelX++, j++) {
                         inputRaster.getPixel(adjacentPixelX, adjacentPixelY, pixel);
-                        redColorAltered += pixel[0] * matrix[adjacentPixelY - offsetY][adjacentPixelX - offsetX];
-                        greedColorAltered += pixel[1] * matrix[adjacentPixelY - offsetY][adjacentPixelX - offsetX];
-                        blueColorAltered += pixel[2] * matrix[adjacentPixelY - offsetY][adjacentPixelX - offsetX];
+                        redColorAltered += pixel[0] * matrix[i][j];
+                        greedColorAltered += pixel[1] * matrix[i][j];
+                        blueColorAltered += pixel[2] * matrix[i][j];
                     }
                 }
 
