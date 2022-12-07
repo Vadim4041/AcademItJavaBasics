@@ -13,15 +13,19 @@ public class HeapSort {
     // Функция "просеивания" через кучу - формирование кучи
     public static void siftDown(int[] numbers, int rootIndex, int endIndex) {
         // Пока не дошли до последнего ряда
-        while (rootIndex * 2 <= endIndex) {
+
+
+        while (rootIndex * 2 + 1 <= endIndex) {
+            int child1Index = rootIndex * 2 + 1;
+            int child2Index = rootIndex * 2 + 2;
             int maxChildIndex; // индекс максимального потомка
 
-            if (rootIndex * 2 == endIndex) {   // если мы в последнем ряду, запоминаем левый потомок, иначе запоминаем больший потомок из двух
-                maxChildIndex = rootIndex * 2;
-            } else if (numbers[rootIndex * 2] > numbers[rootIndex * 2 + 1]) {
-                maxChildIndex = rootIndex * 2;
+            if (child1Index == endIndex) {   // если мы в последнем ряду, запоминаем левый потомок, иначе запоминаем больший потомок из двух
+                maxChildIndex = child1Index;
+            } else if (numbers[child1Index] > numbers[child2Index]) {
+                maxChildIndex = child1Index;
             } else {
-                maxChildIndex = rootIndex * 2 + 1;
+                maxChildIndex = child2Index;
             }
 
             // если элемент вершины не меньше максимального потомка
