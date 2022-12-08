@@ -28,9 +28,6 @@ public class Palindrome {
     }
 
     public static boolean isPalindrome(String string) {
-//        int leftCharacterIndex = 0;
-//        int rightCharacterIndex = string.length() - 1;
-
         if (string.length() - 1 == 0) {
             return true;
         }
