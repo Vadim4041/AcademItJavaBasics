@@ -13,8 +13,6 @@ public class HeapSort {
     // Функция "просеивания" через кучу - формирование кучи
     public static void siftDown(int[] numbers, int rootIndex, int endIndex) {
         // Пока не дошли до последнего ряда
-
-
         while (rootIndex * 2 + 1 <= endIndex) {
             int child1Index = rootIndex * 2 + 1;
             int child2Index = rootIndex * 2 + 2;
