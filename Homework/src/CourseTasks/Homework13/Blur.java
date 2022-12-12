@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Blur {
     public static void main(String[] args) throws IOException {
-        // читаем картинку из файлу image.jpg в объект класса BufferedImage
+        // читаем картинку из файла image.jpg в объект класса BufferedImage
         BufferedImage inputImage = ImageIO.read(new File("Homework/src/CourseTasks/Homework13/image.jpg"));
         BufferedImage outputImage = new BufferedImage(inputImage.getWidth(), inputImage.getHeight(), inputImage.getType());
 
@@ -40,22 +40,26 @@ public class Blur {
             // цикл по пикселям строки
             for (int x = offset; x < width - offset; ++x) {
                 // делаем размытие
-                double redColorAltered = 0;
-                double greedColorAltered = 0;
-                double blueColorAltered = 0;
+                double redColor = 0;
+                double greedColor = 0;
+                double blueColor = 0;
 
-                for (int adjacentPixelY = y - offset, i = 0; i <= matrix.length - 1; adjacentPixelY++, i++) {
-                    for (int adjacentPixelX = x - offset, j = 0; j <= matrix.length - 1; adjacentPixelX++, j++) {
+                int xOffset = x - offset;
+                int yOffset = y - offset;
+
+                for (int adjacentPixelY = yOffset, i = 0; i < matrix.length; adjacentPixelY++, i++) {
+                    for (int adjacentPixelX = xOffset, j = 0; j < matrix.length; adjacentPixelX++, j++) {
                         inputRaster.getPixel(adjacentPixelX, adjacentPixelY, pixel);
-                        redColorAltered += pixel[0] * matrix[i][j];
-                        greedColorAltered += pixel[1] * matrix[i][j];
-                        blueColorAltered += pixel[2] * matrix[i][j];
+                        redColor += pixel[0] * matrix[i][j];
+                        greedColor += pixel[1] * matrix[i][j];
+                        blueColor += pixel[2] * matrix[i][j];
                     }
                 }
 
-                pixel[0] = saturate((int) Math.round(redColorAltered));
-                pixel[1] = saturate((int) Math.round(greedColorAltered));
-                pixel[2] = saturate((int) Math.round(blueColorAltered));
+                pixel[0] = saturate(redColor);
+                pixel[1] = saturate(greedColor);
+                pixel[2] = saturate(blueColor);
+
                 // записываем значения цветов для пикселя в картинку
                 outputRaster.setPixel(x, y, pixel);
             }
@@ -65,9 +69,11 @@ public class Blur {
         ImageIO.write(outputImage, "png", new File("Homework/src/CourseTasks/Homework13/out.png"));
     }
 
-    public static int saturate(int color) {
+    public static int saturate(double color) {
         if (color > 255) {
             return 255;
-        } else return Math.max(color, 0);
+        }
+
+        return (int) Math.round(Math.max(color, 0));
     }
 }
