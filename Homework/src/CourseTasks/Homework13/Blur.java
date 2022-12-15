@@ -35,17 +35,21 @@ public class Blur {
 
         int offset = matrix.length / 2;
 
+        int heightLimit = height - offset;
+        int widthLimit = width - offset;
+
         // цикл по строкам картинки
-        for (int y = offset; y < height - offset; ++y) {
+        for (int y = offset; y < heightLimit; ++y) {
+            int yOffset = y - offset;
+
             // цикл по пикселям строки
-            for (int x = offset; x < width - offset; ++x) {
+            for (int x = offset; x < widthLimit; ++x) {
                 // делаем размытие
                 double redColor = 0;
                 double greedColor = 0;
                 double blueColor = 0;
 
                 int xOffset = x - offset;
-                int yOffset = y - offset;
 
                 for (int adjacentPixelY = yOffset, i = 0; i < matrix.length; adjacentPixelY++, i++) {
                     for (int adjacentPixelX = xOffset, j = 0; j < matrix.length; adjacentPixelX++, j++) {
@@ -70,10 +74,14 @@ public class Blur {
     }
 
     public static int saturate(double color) {
-        if (color > 255) {
+        if (color >= 255) {
             return 255;
         }
 
-        return (int) Math.round(Math.max(color, 0));
+        if (color <= 0) {
+            return 0;
+        }
+
+        return (int) Math.round(color);
     }
 }
