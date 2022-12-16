@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework5;
 
 /*
 • Напишите программу, которая рассчитывает сумму

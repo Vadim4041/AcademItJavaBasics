@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework8;
 
 /*
 • Объявить некоторую строковую переменную в программе

@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework8;
 
 /*
 • Написать функцию, которая ищет в строке подстроку

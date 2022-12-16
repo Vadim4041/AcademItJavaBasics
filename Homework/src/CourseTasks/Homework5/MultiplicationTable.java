@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework5;
 
 /*
 • Вывести в консоль таблицу умножения чисел от 1 до 10 при

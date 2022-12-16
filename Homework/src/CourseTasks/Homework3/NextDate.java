@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework3;
 
 /*
 • Программа запрашивает сегодняшнюю дату и выдает дату

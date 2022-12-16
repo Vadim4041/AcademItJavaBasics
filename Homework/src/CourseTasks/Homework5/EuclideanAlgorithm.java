@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework5;
 
 /*
 • Для нахождения наибольшего общего делителя двух чисел

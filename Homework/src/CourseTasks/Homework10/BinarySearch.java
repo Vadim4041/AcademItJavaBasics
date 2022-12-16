@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework10;
 
 /*
 1. Вычисляем средний индекс middle через left и right

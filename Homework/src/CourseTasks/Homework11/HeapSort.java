@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework11;
 
 import java.util.Arrays;
 

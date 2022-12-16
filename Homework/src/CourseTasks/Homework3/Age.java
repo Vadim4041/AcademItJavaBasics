@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework3;
 
 /*
 • Программа просит ввести пользователя свой возраст от 1

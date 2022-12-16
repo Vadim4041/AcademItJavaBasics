@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework3;
 
 /*
 • Прочитать с консоли коэффициенты a, b и c квадратного

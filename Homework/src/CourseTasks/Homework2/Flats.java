@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework2;
 
 /*
 • Есть дом с известным количеством этажей и подъездов.  Все

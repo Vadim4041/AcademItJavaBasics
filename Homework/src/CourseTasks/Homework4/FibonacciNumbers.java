@@ -1,4 +1,4 @@
-package CourseTasks;
+package CourseTasks.Homework4;
 
 /*
 • Написать программу, которая принимает с консоли
