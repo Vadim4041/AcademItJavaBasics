@@ -2,7 +2,7 @@ package AdditionalTasks;
 
 public class MatrixDeterminant {
     public static void main(String[] args) {
-        int[][] matrix = {
+        double[][] matrix = {
                 {3, -3, -5, 8},
                 {-3, 2, 4, -6},
                 {2, -5, -7, 5},
@@ -12,32 +12,36 @@ public class MatrixDeterminant {
         System.out.println(getDeterminant(matrix));
     }
 
-    public static int getDeterminant(int[][] matrix) {
-        int length = matrix.length;
+    public static double getDeterminant(double[][] matrix) {
+        int size = matrix.length;
 
-        if (length == 1) {
+        if (size == 1) {
             return matrix[0][0];
         }
 
+        if (size == 2) {
+            return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+        }
+
         int result = 0;
-        int[][] minor = new int[length - 1][length - 1];
+        double[][] minor = new double[size - 1][size - 1];
 
-        for (int i = 0; i < length; ++i) {
-            int x = 0;
+        for (int i = 0; i < size; ++i) {
             int y = 0;
+            int x = 0;
 
-            for (int j = 1; j < length; ++j) {
-                for (int k = 0; k < length; ++k) {
+            for (int j = 1; j < size; ++j) {
+                for (int k = 0; k < size; ++k) {
                     if (i == k) {
                         continue;
                     }
 
-                    minor[x][y] = matrix[j][k];
-                    ++y;
+                    minor[y][x] = matrix[j][k];
+                    ++x;
 
-                    if (y == length - 1) {
-                        y = 0;
-                        ++x;
+                    if (x == size - 1) {
+                        x = 0;
+                        ++y;
                     }
                 }
             }
